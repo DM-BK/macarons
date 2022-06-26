@@ -1,5 +1,8 @@
 import React from 'react';
-import {ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material'
+import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
 
 type SideMenuItem = {
     label: string

@@ -1,31 +1,32 @@
 import {ReactNode} from 'react'
 
-import {styled, StyledComponentProps} from '@mui/material/styles'
-import {Box, AppBar} from '@mui/material'
+import {styled} from '@mui/material/styles'
+import Container from '@mui/material/Container'
+import AppBar, {AppBarProps} from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
 
-type CustomAppBarProps = {
+type CustomAppBarPropsType = {
     isAnimate: boolean
     children: ReactNode
-} & StyledComponentProps
+} & AppBarProps
 
-export const CustomAppBar = styled(({isAnimate, children, ...rest}: CustomAppBarProps) => <AppBar {...rest}>
+export const CustomAppBar = styled(({isAnimate, children, ...rest}: CustomAppBarPropsType) => <AppBar {...rest}>
     {children}
 </AppBar>)`
   position: ${props => props.isAnimate ? 'fixed' : 'static'};
   top: ${({isAnimate}) => isAnimate ? '0' : '-64px'};
-  transition: all .5s
+  transition: all .5s;
 `
 
-export const flexCenter = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-}
+export const HeaderContainer = styled(Container)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
 export const LinksBox = styled(Box)`
   display: none;
   gap: 20px;
-
 
   ${props => props.theme.breakpoints.up('md')} {
     display: flex;
