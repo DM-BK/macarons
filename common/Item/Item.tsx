@@ -1,11 +1,11 @@
-import { FC, ReactNode } from "react";
+import { ReactNode } from "react";
 import Grid from "@mui/material/Grid";
 
 interface ItemProps {
   children: ReactNode,
 }
 
-export const Item: FC<ItemProps> = ({children}) => (
+export const Item = ({children}: ItemProps) => (
   <Grid item>
     {children}
   </Grid>

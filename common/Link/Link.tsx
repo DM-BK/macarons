@@ -1,6 +1,7 @@
-import { FC, ReactNode } from "react";
-import NextLink from 'next/link'
-import { LinkStyled, LinkColor } from './LinkStyled'
+import { ReactNode } from "react";
+import NextLink from 'next/link';
+
+import { LinkStyled, LinkColor } from './LinkStyled';
 
 export interface LinkProps {
   href?: string;
@@ -11,7 +12,7 @@ export interface LinkProps {
   target?: string;
 }
 
-export const Link: FC<LinkProps> =  ({href = '', children, color = LinkColor.primary, className, download, target}) => (
+export const Link =  ({href = '', children, color = LinkColor.primary, className, download, target}: LinkProps) => (
   <NextLink href={href} passHref>
     <LinkStyled className={className} download={download} target={target} color={color}>
       {children}
