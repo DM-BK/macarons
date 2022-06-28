@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Toolbar from '@mui/material/Toolbar'
-import AppBar from '@mui/material/AppBar'
 import {
     getAppBarStyles,
     getBurgerBoxStyles,
@@ -8,10 +6,9 @@ import {
     HeaderContainerStyles,
 } from "./HeaderStyles";
 import SideMenu from "./sideMenu/SideMenu";
-import {Container, Box, Link} from "@common";
+import {Container, Box, Link, Image, AppBar, Toolbar} from "@common";
 
 import MenuIcon from '@mui/icons-material/Menu';
-import Image from "next/image";
 
 const Header = () => {
     const [isAnimate, setIsAnimate] = useState(false)

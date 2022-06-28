@@ -5,7 +5,7 @@ import { LinkStyled, LinkColor } from './LinkStyled'
 export interface LinkProps {
   href?: string;
   children: ReactNode;
-  color?: LinkColor.primary | LinkColor.secondary
+  color?: LinkColor
   className?: any;
   download?: boolean;
   target?: string;

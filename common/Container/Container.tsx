@@ -1,17 +1,9 @@
-import React, {ReactNode} from 'react';
-import {ContainerStyled} from "@common/Container/ContainerStyled";
-import {SxProps} from '@mui/material/styles'
+import MuiContainer, {ContainerProps} from '@mui/material/Container'
 
-interface ContainerProps {
-    children: ReactNode,
-    maxWidth: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-    sx?: SxProps
-}
-
-export const Container = ({children, sx = {}, maxWidth}: ContainerProps) => {
+export const Container = ({children, sx, maxWidth}: ContainerProps) => {
     return (
-        <ContainerStyled sx={sx} maxWidth={maxWidth}>
+        <MuiContainer sx={sx} maxWidth={maxWidth}>
             {children}
-        </ContainerStyled>
+        </MuiContainer>
     );
 };

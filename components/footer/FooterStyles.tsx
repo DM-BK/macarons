@@ -6,9 +6,6 @@ export const FooterStyles: SxProps = {
     color: '#fff',
 }
 
-export const FooterContainerStyles: SxProps = {
-}
-
 export const LogoBoxStyles: SxProps = {
     mb: 3
 }

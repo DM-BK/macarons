@@ -1,14 +1,9 @@
-import React, {ReactNode} from 'react';
-import {TypographyStyled} from "./TypographyStyled";
-
-interface TypographyProps {
-    children: ReactNode
-}
+import MuiTypography, {TypographyProps} from '@mui/material/Typography'
 
 export const Typography = ({children}: TypographyProps) => {
     return (
-        <TypographyStyled>
+        <MuiTypography>
             {children}
-        </TypographyStyled>
+        </MuiTypography>
     );
 };

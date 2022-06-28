@@ -3,8 +3,8 @@ import NextImage from 'next/image'
 
 interface ImageProps {
     src: string
-    width: string
-    height: string
+    width: string | number
+    height: string | number
     alt: string
 }
 

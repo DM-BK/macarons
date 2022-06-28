@@ -1,9 +1,7 @@
 import React from 'react';
-import Image from 'next/image'
 
 import IconButton from '@mui/material/IconButton'
 import {
-    FooterContainerStyles,
     FooterContentBoxStyles,
     FooterStyles,
     LeftSideBoxStyles,
@@ -12,7 +10,7 @@ import {
     SocialLinkInnerCircleBoxStyles,
     SocialLinkOuterBoxStyles,
 } from "./FooterStyles";
-import {Box, Container, Link, Typography} from '@common'
+import {Box, Container, Link, Typography, Image} from '@common'
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -23,7 +21,7 @@ export const Footer = () => {
 
     return (
         <Box component={'div'} sx={FooterStyles}>
-            <Container maxWidth={'lg'} sx={FooterContainerStyles}>
+            <Container maxWidth={'lg'}>
                 <Box sx={LogoBoxStyles}>
                     <Image src={'/logoWhite.svg'} alt={'bazar logo'} width={98.8} height={28}/>
                 </Box>
