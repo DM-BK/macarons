@@ -1,9 +1,9 @@
 import MuiBottomNavigationAction, {BottomNavigationActionProps} from "@mui/material/BottomNavigationAction";
 
 
-export const BottomNavigationAction = ({children}: BottomNavigationActionProps) => {
+export const BottomNavigationAction = ({children, label, icon}: BottomNavigationActionProps) => {
   return (
-    <MuiBottomNavigationAction>
+    <MuiBottomNavigationAction label={label} icon={icon}>
       {children}
     </MuiBottomNavigationAction>
   );
