@@ -7,10 +7,10 @@ export interface ButtonProps extends MuiButtonProps {
   children: ReactNode;
 }
 
-export const Button = ({children}: ButtonProps) => {
+export const Button = ({children, onClick}: ButtonProps) => {
 
   return (
-    <ButtonStyled>
+    <ButtonStyled onClick={onClick}>
       {children}
     </ButtonStyled>
   );

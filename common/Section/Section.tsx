@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import Grid from "@mui/material/Grid";
+import Grid, {GridProps} from "@mui/material/Grid";
 
-interface SectionProps {
-  children: ReactNode,
+interface SectionProps extends GridProps {
+  children: ReactNode
 }
 
 export const Section = ({children}: SectionProps) => (
