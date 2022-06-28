@@ -1,14 +1,23 @@
-import React from 'react';
-import Link from 'next/link'
+import type { NextPage } from 'next'
+import Head from 'next/head'
 
-const Home = () => {
-    return (
-        <div>
-            <Link href={'/products'}>
-                <a>Product</a>
-            </Link>
-        </div>
-    );
-};
+import { NavigationSection } from '@components/pages/Home'
+
+const Home: NextPage = () => {
+
+  return (
+    <>
+      <Head>
+        <title>Home</title>
+        <meta name="description" content="home" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main>
+        <NavigationSection />
+      </main>
+    </>
+  )
+}
 
 export default Home
