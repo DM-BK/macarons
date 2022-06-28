@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import Grid from "@mui/material/Grid";
+import Grid, {GridProps} from "@mui/material/Grid";
 
-interface ItemProps {
+interface ItemProps extends GridProps {
   children: ReactNode,
 }
 
