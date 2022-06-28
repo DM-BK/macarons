@@ -1,16 +1,16 @@
 import {SxProps} from '@mui/material/styles'
 
-export const FooterStyles: SxProps = {
+export const Footer: SxProps = {
     backgroundColor: 'primary.main',
     padding: '30px 0',
     color: '#fff',
 }
 
-export const LogoBoxStyles: SxProps = {
+export const LogoBox: SxProps = {
     mb: 3
 }
 
-export const FooterContentBoxStyles: SxProps = {
+export const FooterContentBox: SxProps = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: {
@@ -24,7 +24,7 @@ export const FooterContentBoxStyles: SxProps = {
 
 }
 
-export const LeftSideBoxStyles: SxProps = {
+export const LeftSideBox: SxProps = {
     display: 'flex',
     flexDirection: 'column',
     gap: '15px',
@@ -38,13 +38,13 @@ export const LeftSideBoxStyles: SxProps = {
     }
 }
 
-export const SocialLinkOuterBoxStyles: SxProps = {
+export const SocialLinkOuterBox: SxProps = {
     display: 'flex',
     alignItems: 'center',
     gap: '15px',
 }
 
-export const SocialLinkInnerCircleBoxStyles: SxProps = {
+export const SocialLinkInnerCircleBox: SxProps = {
     backgroundColor: 'rgba(0,0,0,.2)',
 
     '&.MuiButtonBase-root:hover': {
@@ -52,7 +52,7 @@ export const SocialLinkInnerCircleBoxStyles: SxProps = {
     }
 }
 
-export const RightSideBoxStyles: SxProps = {
+export const RightSideBox: SxProps = {
     display: 'flex',
     flexDirection: {
         'xs': 'row',

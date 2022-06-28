@@ -5,7 +5,7 @@ type GetStylesType = (theme: Theme) => SystemStyleObject<Theme>
 
 type GetAppBarStylesType = (isAnimate: boolean) => SxProps<Theme>
 
-export const getAppBarStyles: GetAppBarStylesType = (isAnimate) => ({
+export const getAppBar: GetAppBarStylesType = (isAnimate) => ({
     position: isAnimate ? 'fixed' : 'static',
     top: isAnimate ? '0' : '-64px',
     transition: 'all .5s',
@@ -15,13 +15,13 @@ export const getAppBarStyles: GetAppBarStylesType = (isAnimate) => ({
     }
 })
 
-export const HeaderContainerStyles: SxProps = {
+export const HeaderContainer: SxProps = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center'
 }
 
-export const getLinksBoxStyles: GetStylesType = theme => ({
+export const getLinksBox: GetStylesType = theme => ({
     display: 'none',
     gap: '20px',
 
@@ -29,7 +29,7 @@ export const getLinksBoxStyles: GetStylesType = theme => ({
         display: 'flex'
     }
 })
-export const getBurgerBoxStyles: GetStylesType = theme => ({
+export const getBurgerBox: GetStylesType = theme => ({
     border: 1,
     borderColor: 'grey.400',
     width: '42px',

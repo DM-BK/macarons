@@ -1,49 +1,43 @@
 import React from 'react';
 
 import IconButton from '@mui/material/IconButton'
-import {
-    FooterContentBoxStyles,
-    FooterStyles,
-    LeftSideBoxStyles,
-    LogoBoxStyles,
-    RightSideBoxStyles,
-    SocialLinkInnerCircleBoxStyles,
-    SocialLinkOuterBoxStyles,
-} from "./FooterStyles";
-import {Box, Container, Link, Typography, Image} from '@common'
-
-import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+
+import {Box, Container, Link, Typography, Image} from '@common'
 import {LinkColor} from "@common/Link/LinkStyled";
+
+import * as styles from "./FooterStyles";
+
 
 export const Footer = () => {
 
     return (
-        <Box component={'div'} sx={FooterStyles}>
+        <Box component={'div'} sx={styles.Footer}>
             <Container maxWidth={'lg'}>
-                <Box sx={LogoBoxStyles}>
+                <Box sx={styles.LogoBox}>
                     <Image src={'/logoWhite.svg'} alt={'bazar logo'} width={98.8} height={28}/>
                 </Box>
-                <Box sx={FooterContentBoxStyles}>
-                    <Box sx={LeftSideBoxStyles}>
+                <Box sx={styles.FooterContentBox}>
+                    <Box sx={styles.LeftSideBox}>
                         <Typography>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi commodi illo
                             impedit
                             in
                             molestias nihil nulla praesentium repudiandae sed, voluptatem!</Typography>
-                        <Box sx={SocialLinkOuterBoxStyles}>
-                            <IconButton sx={SocialLinkInnerCircleBoxStyles}>
+                        <Box sx={styles.SocialLinkOuterBox}>
+                            <IconButton sx={styles.SocialLinkInnerCircleBox}>
                                 <FacebookIcon fontSize={'small'} color={'secondary'}/>
                             </IconButton>
-                            <IconButton sx={SocialLinkInnerCircleBoxStyles}>
+                            <IconButton sx={styles.SocialLinkInnerCircleBox}>
                                 <GoogleIcon fontSize={'small'} color={'secondary'}/>
                             </IconButton>
-                            <IconButton sx={SocialLinkInnerCircleBoxStyles}>
+                            <IconButton sx={styles.SocialLinkInnerCircleBox}>
                                 <InstagramIcon fontSize={'small'} color={'secondary'}/>
                             </IconButton>
                         </Box>
                     </Box>
-                    <Box sx={RightSideBoxStyles}>
+                    <Box sx={styles.RightSideBox}>
                         <Link href={'/'} color={LinkColor.secondary}>Home</Link>
                         <Link href={'/products'} color={LinkColor.secondary}>Products</Link>
                         <Link href={'/how-buy'} color={LinkColor.secondary}>How buy</Link>

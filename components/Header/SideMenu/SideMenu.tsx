@@ -1,9 +1,10 @@
 import React from 'react';
-import SideMenuItem from "./sideMenuItem/SideMenuItem";
-import {CloseIconStyles, DrawerStyles} from "./SideMenuStyles";
-
 import CloseIcon from '@mui/icons-material/Close';
+
 import {List, ListItem, Drawer} from "@common";
+import {SideMenuItem} from "@components/Header/SideMenu/SideMenuItem";
+
+import * as styles from './SideMenuStyles'
 
 interface SideMenuProps {
     open: boolean
@@ -12,11 +13,11 @@ interface SideMenuProps {
 
 const labels = ['Home', 'Products', 'How buy', 'About us']
 
-const SideMenu = ({open, handleClose}: SideMenuProps) => {
+export const SideMenu = ({open, handleClose}: SideMenuProps) => {
     return (
-        <Drawer sx={DrawerStyles} anchor={'right'} open={open} onClose={handleClose}>
+        <Drawer sx={styles.Drawer} anchor={'right'} open={open} onClose={handleClose}>
             <List>
-                <ListItem sx={CloseIconStyles}>
+                <ListItem sx={styles.CloseIcon}>
                     <CloseIcon onClick={handleClose}/>
                 </ListItem>
                 {labels.map(label => (
@@ -26,5 +27,3 @@ const SideMenu = ({open, handleClose}: SideMenuProps) => {
         </Drawer>
     );
 };
-
-export default SideMenu;

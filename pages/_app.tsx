@@ -1,10 +1,11 @@
 import '../styles/globals.css'
 import type {AppProps} from 'next/app'
 import {ThemeProvider} from '@mui/material/styles'
-import Header from "../components/header/Header";
-import {Footer} from "@components/footer";
-import GlobalStyles, {AppBoxStyles, Main, theme} from "../components/global/GlobalStyles";
+
 import {Container, Box} from "@common";
+import {Footer} from "@components/Footer";
+import {Header} from "@components/Header";
+import GlobalStyles, {AppBoxStyles, Main, theme} from "../components/Global/GlobalStyles";
 
 function MyApp({Component, pageProps}: AppProps) {
     return <>
