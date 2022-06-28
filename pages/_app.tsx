@@ -5,7 +5,7 @@ import {ThemeProvider} from '@mui/material/styles'
 import {Container, Box} from "@common";
 import {Footer} from "@components/Footer";
 import {Header} from "@components/Header";
-import GlobalStyles, {AppBoxStyles, Main, theme} from "../components/Global/GlobalStyles";
+import GlobalStyles, {AppBoxStyles, Main, theme} from "../components/global/GlobalStyles";
 
 function MyApp({Component, pageProps}: AppProps) {
     return <>
