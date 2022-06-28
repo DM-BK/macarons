@@ -1,46 +1,74 @@
-import Container from '@mui/material/Container'
-import Box from '@mui/material/Box'
-import {styled} from '@mui/material/styles'
+import {SxProps} from '@mui/material/styles'
 
-export const CustomFooter = styled('footer')`
-  background-color: ${props => props.theme.palette.primary.main};
-  padding: 30px 0;
-  color: #fff;
-`
+export const FooterStyles: SxProps = {
+    backgroundColor: 'primary.main',
+    padding: '30px 0',
+    color: '#fff',
+}
 
-export const FooterContainer = styled(Container)`
-  display: flex;
-  gap: 270px;
-  align-items: center;
-`
+export const FooterContainerStyles: SxProps = {
+}
 
-export const LeftSideBox = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: flex-start;
-  max-width: 40%;
-`
+export const LogoBoxStyles: SxProps = {
+    mb: 3
+}
 
-export const SocialLinkWrapper = styled(Box)`
-  display: flex;
-  align-items: center;
-  gap: 15px;
-`
+export const FooterContentBoxStyles: SxProps = {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: {
+        'xs': 'column-reverse',
+        'md': 'row'
+    },
+    gap: {
+        'xs': '20px',
+        'md': '290px',
+    }
 
-export const SocialLinkCircleBox = styled(Box)`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, .2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
+}
 
-export const RightSideBox = styled(Box)`
-  max-width: 40%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`
+export const LeftSideBoxStyles: SxProps = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '15px',
+    alignSelf: {
+        'xs': 'self-start'
+    },
+    alignItems: 'flex-start',
+    maxWidth: {
+        'xs': '80%',
+        'md': '40%'
+    }
+}
+
+export const SocialLinkOuterBoxStyles: SxProps = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '15px',
+}
+
+export const SocialLinkInnerCircleBoxStyles: SxProps = {
+    backgroundColor: 'rgba(0,0,0,.2)',
+
+    '&.MuiButtonBase-root:hover': {
+        backgroundColor: 'rgb(255 255 255 / 20%)'
+    }
+}
+
+export const RightSideBoxStyles: SxProps = {
+    display: 'flex',
+    flexDirection: {
+        'xs': 'row',
+        'md': 'column'
+    },
+    gap: '10px',
+    alignSelf: 'flex-start',
+    flexWrap: {
+        'xs': 'wrap',
+        'md': 'nowrap'
+    },
+    maxWidth: {
+        'xs': '60%',
+        'md': '40%'
+    }
+}

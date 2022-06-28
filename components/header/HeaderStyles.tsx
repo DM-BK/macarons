@@ -1,49 +1,45 @@
-import {ReactNode} from 'react'
+import {SxProps, Theme} from '@mui/material/styles'
+import {SystemStyleObject} from '@mui/system/styleFunctionSx/styleFunctionSx'
 
-import {styled} from '@mui/material/styles'
-import Container from '@mui/material/Container'
-import AppBar, {AppBarProps} from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
+type GetStylesType = (theme: Theme) => SystemStyleObject<Theme>
 
-type CustomAppBarPropsType = {
-    isAnimate: boolean
-    children: ReactNode
-} & AppBarProps
+type GetAppBarStylesType = (isAnimate: boolean) => SxProps<Theme>
 
-export const CustomAppBar = styled(({isAnimate, children, ...rest}: CustomAppBarPropsType) => <AppBar {...rest}>
-    {children}
-</AppBar>)`
-  position: ${props => props.isAnimate ? 'fixed' : 'static'};
-  top: ${({isAnimate}) => isAnimate ? '0' : '-64px'};
-  transition: all .5s;
-`
+export const getAppBarStyles: GetAppBarStylesType = (isAnimate) => ({
+    position: isAnimate ? 'fixed' : 'static',
+    top: isAnimate ? '0' : '-64px',
+    transition: 'all .5s',
 
-export const HeaderContainer = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
+    '& .MuiToolbar-root': {
+        padding: '0'
+    }
+})
 
-export const LinksBox = styled(Box)`
-  display: none;
-  gap: 20px;
+export const HeaderContainerStyles: SxProps = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+}
 
-  ${props => props.theme.breakpoints.up('md')} {
-    display: flex;
-  }
-`
+export const getLinksBoxStyles: GetStylesType = theme => ({
+    display: 'none',
+    gap: '20px',
 
-export const BurgerBox = styled(Box)`
-  border: 1px solid rgba(255, 255, 255, .4);
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    [theme.breakpoints.up('md')]: {
+        display: 'flex'
+    }
+})
+export const getBurgerBoxStyles: GetStylesType = theme => ({
+    border: 1,
+    borderColor: 'grey.400',
+    width: '42px',
+    height: '42px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
 
-  ${props => props.theme.breakpoints.up('md')} {
-    display: none;
-  }
-`
-
+    [theme.breakpoints.up('md')]: {
+        display: 'none'
+    }
+})

@@ -1,18 +1,16 @@
-import Global from '@mui/material/GlobalStyles'
+import MuiGlobalStyles, {GlobalStylesProps} from '@mui/material/GlobalStyles'
 import {createTheme} from '@mui/material/styles'
-import Box from '@mui/material/Box'
-import {GlobalStylesProps} from '@mui/material/GlobalStyles'
 import {styled} from '@mui/material/styles'
 
 export const Main = styled('main')`
   flex: 2;
 `
 
-export const AppWrapper = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`
+export const AppBoxStyles = {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh'
+}
 
 export const theme = createTheme({
     breakpoints: {
@@ -43,7 +41,7 @@ const GlobalStyles = () => {
     }
 
     return (
-        <Global styles={styles}/>
+        <MuiGlobalStyles styles={styles}/>
     );
 };
 
