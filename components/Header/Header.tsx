@@ -5,6 +5,7 @@ import {Container, Box, Link, Image, AppBar, Toolbar} from "@common";
 import {SideMenu} from "@components/Header/SideMenu";
 
 import * as styles from "./HeaderStyles";
+import { headerRoutes } from './routes';
 
 export const Header = () => {
     const [isAnimate, setIsAnimate] = useState(false)
@@ -27,10 +28,9 @@ export const Header = () => {
                 <Container sx={styles.HeaderContainer} maxWidth={'lg'}>
                     <Image src={'/logo.svg'} alt="bazar logo" width={98.8} height={28}/>
                     <Box sx={styles.getLinksBox}>
-                        <Link href={'/'}>Home</Link>
-                        <Link href={'/products'}>Products</Link>
-                        <Link href={'/how-buy'}>How buy</Link>
-                        <Link href={'/about'}>About us</Link>
+                        {headerRoutes.map(route => (
+                            <Link href={route.path}>{route.label}</Link>
+                        ))}
                     </Box>
                     <Box sx={styles.getBurgerBox} onClick={handleOpen}>
                         <MenuIcon/>
