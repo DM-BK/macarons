@@ -32,7 +32,7 @@ export const Sidebar = () => {
           subheader={<ListSubheader>Popular Products</ListSubheader>}
         >
           {sidebarPopularProductsRoutes.map((route) => (
-            <ListItem>
+            <ListItem key={route.path}>
               <Link href={route.path}>{route.label}</Link>
             </ListItem>
           ))}
