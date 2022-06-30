@@ -17,7 +17,7 @@ const animate: SxProps = {
 };
 
 export const getAppBar: GetAppBarStylesType = (isAnimate) => ({
-    position: isAnimate ? 'fixed' : 'static',
+    position: isAnimate ? 'fixed' : 'absolute',
     top: 0,
     opacity: 0,
     animationName: isAnimate ? 'fadein2' : 'fadein1',
