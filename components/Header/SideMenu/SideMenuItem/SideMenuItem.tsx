@@ -1,14 +1,17 @@
 import React from 'react';
-import {ListItemText, ListItem} from "@common";
+import {ListItemText, ListItem, Link} from "@common";
 
 interface SideMenuItemProps {
     label: string
+    path: string
 }
 
-export const SideMenuItem = ({label}: SideMenuItemProps) => {
+export const SideMenuItem = ({label, path}: SideMenuItemProps) => {
     return (
         <ListItem>
-            <ListItemText>{label}</ListItemText>
+            <Link href={path}>
+                <ListItemText>{label}</ListItemText>
+            </Link>
         </ListItem>
     );
 };

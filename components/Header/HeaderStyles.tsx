@@ -5,10 +5,28 @@ type GetStylesType = (theme: Theme) => SystemStyleObject<Theme>
 
 type GetAppBarStylesType = (isAnimate: boolean) => SxProps<Theme>
 
+const animate: SxProps = {
+    from: {
+        transform: 'translateY(-40px)',
+        opacity: 0,
+    },
+    to: { 
+        transform: 'translateY(0)',
+        opacity: 1 
+    },
+};
+
 export const getAppBar: GetAppBarStylesType = (isAnimate) => ({
-    position: isAnimate ? 'fixed' : 'static',
-    top: isAnimate ? '0' : '-64px',
-    transition: 'all .5s',
+    position: isAnimate ? 'fixed' : 'absolute',
+    top: 0,
+    opacity: 0,
+    animationName: isAnimate ? 'fadein2' : 'fadein1',
+    animationDuration: '.5s',
+    animationIterationCount: 1,
+    animationFillMode: 'forwards',
+
+    '@keyframes fadein1': animate,
+    '@keyframes fadein2': animate,
 
     '& .MuiToolbar-root': {
         padding: '0'

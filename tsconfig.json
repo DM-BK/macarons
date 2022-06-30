@@ -17,6 +17,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
+      "@routes": ["routes"],
       "@common": ["common"],
       "@common/*": ["common/*"],
       "@components": ["components"],

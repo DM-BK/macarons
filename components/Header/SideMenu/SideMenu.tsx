@@ -5,13 +5,12 @@ import {List, ListItem, Drawer} from "@common";
 import {SideMenuItem} from "@components/Header/SideMenu/SideMenuItem";
 
 import * as styles from './SideMenuStyles'
+import { headerRoutes } from '../routes';
 
 interface SideMenuProps {
     open: boolean
     handleClose: () => void
 }
-
-const labels = ['Home', 'Products', 'How buy', 'About us']
 
 export const SideMenu = ({open, handleClose}: SideMenuProps) => {
     return (
@@ -20,8 +19,8 @@ export const SideMenu = ({open, handleClose}: SideMenuProps) => {
                 <ListItem sx={styles.CloseIcon}>
                     <CloseIcon onClick={handleClose}/>
                 </ListItem>
-                {labels.map(label => (
-                    <SideMenuItem key={label} label={label}/>
+                {headerRoutes.map((route) => (
+                    <SideMenuItem key={route.label} label={route.label} path={route.path} />
                 ))}
             </List>
         </Drawer>
