@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import type {AppProps} from 'next/app'
 import {ThemeProvider} from '@mui/material/styles'
 
-import {Container, Box} from "@common";
+import {Box} from "@common";
 import {Footer} from "@components/Footer";
 import {Header} from "@components/Header";
 import GlobalStyles, {AppBoxStyles, Main, theme} from "../components/global/GlobalStyles";
@@ -14,9 +14,7 @@ function MyApp({Component, pageProps}: AppProps) {
                 <GlobalStyles/>
                 <Header/>
                 <Main>
-                    <Container maxWidth={'lg'}>
-                        <Component {...pageProps}/>
-                    </Container>
+                    <Component {...pageProps}/>
                 </Main>
                 <Footer/>
             </Box>
