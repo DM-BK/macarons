@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Navigation} from "swiper";
 import {Container, Typography, Slider, SliderItem} from "@common";
 
@@ -16,6 +16,7 @@ export const ProductsSection = () => {
             <Typography sx={styles.ProductsSectionDesc}>Tall bind but were, been folks not the expand</Typography>
             <Slider
                 spaceBetween={30}
+                // loop
                 navigation={{
                     prevEl,
                     nextEl
@@ -23,7 +24,7 @@ export const ProductsSection = () => {
                 slidesPerView={1}
                 breakpoints={{
                     0: {
-                      slidesPerView: 1
+                        slidesPerView: 1
                     },
                     768: {
                         slidesPerView: 2
@@ -62,5 +63,5 @@ export const ProductsSection = () => {
             <ArrowSliderButton ref={node => setPrevEl(node)} prev/>
             <ArrowSliderButton ref={node => setNextEl(node)}/>
         </Container>
-    );
+    )
 };

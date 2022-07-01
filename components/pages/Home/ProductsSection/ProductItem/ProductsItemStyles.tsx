@@ -26,7 +26,7 @@ export const ProductsItemTopInner: SxProps = {
     height: '250px',
     padding: '60px 40px 20px 40px',
     backgroundColor: '#f5f5f5',
-    marginBottom: '50px',
+    marginBottom: '20px',
 }
 
 export const ProductsItemDiscount: SxProps = {
@@ -79,25 +79,9 @@ export const ProductsItemImageBox: SxProps = {
     top: '17px',
 }
 
-export const ProductsItemImage: SxProps = {
-    objectFit: 'contain',
-    width: '200px',
-}
-
 export const ProductsItemBottom: SxProps = {
     padding: 2,
     display: 'flex',
-
-    del: {
-        color: '##7D879C'
-    }
-}
-
-export const ProductsItemLinkBottom: SxProps = {
-    color: 'inherit',
-    '&:hover': {
-        textDecoration: 'unset'
-    }
 }
 
 export const ProductsItemLinkBottomText: SxProps = {
@@ -106,6 +90,9 @@ export const ProductsItemLinkBottomText: SxProps = {
 }
 
 export const ProductsItemBottomLeft: SxProps = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
     flex: 2
 }
 
@@ -124,13 +111,33 @@ export const ProductsItemOldPrice: SxProps = {
     textDecoration: 'line-through'
 }
 
+export const ProductsItemCountBox: SxProps = {
+    height: '102.2px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '5px',
+    justifyContent: 'flex-end'
+}
+
+export const ProductsItemCount: SxProps = {
+    color: 'rgb(43, 52, 69)',
+    fontSize: '14px'
+}
+
 export const ProductsItemAdd: SxProps = {
-    alignSelf: 'flex-end',
     height: '30px',
     width: '30px',
     border: '1px solid',
     borderColor: 'primary.main',
     borderRadius: '0',
     position: 'relative',
-    zIndex: '50'
+    zIndex: 5000,
+
+    '&:hover': {
+        color: '#fff',
+        background: '#4BB4B4',
+        border: '1px solid',
+        borderColor: '#4BB4B4'
+    }
 }

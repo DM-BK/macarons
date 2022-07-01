@@ -1,15 +1,8 @@
 import React from 'react';
-import NextImage from 'next/image'
+import NextImage, {ImageProps} from 'next/image'
 
-interface ImageProps {
-    src: string
-    width: string | number
-    height: string | number
-    alt: string
-}
-
-export const Image = ({src, alt, height, width}: ImageProps) => {
+export const Image = ({src, alt, height, width, objectFit, layout}: ImageProps) => {
     return (
-        <NextImage src={src} alt={alt} height={height} width={width}/>
+        <NextImage src={src} alt={alt} height={height} width={width} objectFit={objectFit} layout={layout}/>
     );
 };

@@ -12,11 +12,12 @@ export interface LinkProps {
     download?: boolean;
     target?: string;
     sx?: SxProps
+    withoutStyles?: boolean
 }
 
-export const Link = ({href = '', children, color = LinkColor.primary, className, download, target, sx = {}}: LinkProps) => (
+export const Link = ({href = '', children, color = LinkColor.primary, className, download, target, sx = {}, withoutStyles}: LinkProps) => (
     <NextLink href={href} passHref>
-        <LinkStyled className={className} download={download} target={target} color={color} sx={sx}>
+        <LinkStyled className={className} download={download} target={target} color={color} sx={sx} withoutStyles={withoutStyles}>
             {children}
         </LinkStyled>
     </NextLink>

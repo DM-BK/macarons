@@ -20,10 +20,4 @@ export const getArrowSliderButton: getArrowButtonSliderType = (prev) => ({
     '&:hover': {
       backgroundColor: '#DDFBF1'
     },
-
-
-    //под вопросом, есть проблема с loop на products slider
-    '&.swiper-button-disabled': {
-
-    }
 })
