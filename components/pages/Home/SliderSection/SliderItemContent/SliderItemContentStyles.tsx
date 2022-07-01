@@ -6,6 +6,8 @@ export const SliderItemContentBox: SxProps = {
         xs: '101%',
         lg: '102%'
     },
+
+    paddingTop: '64px',
     background: 'url("/rose.jpeg") center no-repeat',
     backgroundSize: 'cover',
     color: '#2b3445',

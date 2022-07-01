@@ -4,7 +4,7 @@ export const Sidebar = () => {
 
   return (<>
     <BottomNavigation>
-      <Link href={''}>
+      <Link href={'/'}>
         <BottomNavigationAction label={'Home'}  />
       </Link>
       <BottomNavigationAction label={'Category'}   />

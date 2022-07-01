@@ -1,5 +1,5 @@
 import {SxProps, Theme} from '@mui/material/styles'
-import {SystemStyleObject} from '@mui/system/styleFunctionSx/styleFunctionSx'
+import {SystemStyleObject} from '@mui/system/styleFunctionSx'
 
 type GetStylesType = (theme: Theme) => SystemStyleObject<Theme>
 
