@@ -3,18 +3,18 @@ import { ReactNode } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 
-type Page = {
+export type RouteProps = {
   path: string,
   label: string,
   icon?: ReactNode,
 }
 
 type Routes = {
-  HOME: Page,
-  HOT: Page,
-  PRODUCTS: Page,
-  HOW_BUY: Page,
-  ABOUT_US: Page,
+  HOME: RouteProps,
+  POPULAR_PRODUCTS: RouteProps,
+  PRODUCTS: RouteProps,
+  HOW_BUY: RouteProps,
+  ABOUT_US: RouteProps,
 }
 
 export const routes: Routes = {
@@ -23,9 +23,9 @@ export const routes: Routes = {
     label: 'Home',
     icon: <HomeIcon />,
   },
-  HOT: {
-    path: '/hot',
-    label: 'Hot',
+  POPULAR_PRODUCTS: {
+    path: '/popular-products',
+    label: 'Popular products',
     icon: <LocalFireDepartmentIcon />,
   },
   PRODUCTS: {

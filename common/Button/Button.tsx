@@ -3,14 +3,20 @@ import { ButtonProps as MuiButtonProps } from '@mui/material/Button';
 
 import { ButtonStyled } from "./ButtonStyled";
 
+export enum variantButton {
+  contained = 'contained',
+  text = 'text',
+  outlined = 'outlined',
+}
+
 export interface ButtonProps extends MuiButtonProps {
   children: ReactNode;
 }
 
-export const Button = ({children, onClick, variant = 'contained', color, sx}: ButtonProps) => {
+export const Button = ({children, onClick, variant = variantButton.contained, color, sx, href, fullWidth}: ButtonProps) => {
 
   return (
-    <ButtonStyled onClick={onClick} variant={variant} color={color} sx={sx}>
+    <ButtonStyled fullWidth={fullWidth} href={href} onClick={onClick} variant={variant} color={color} sx={sx}>
       {children}
     </ButtonStyled>
   );
