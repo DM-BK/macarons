@@ -9,12 +9,15 @@ export enum LinkColor {
 
 export const LinkStyled = styled('a', {
     shouldForwardProp: prop => prop !== 'withoutStyles'
-})<LinkProps>(({withoutStyles, color, theme}: any) => ({
-    color: withoutStyles
-        ? 'inherit'
-        : color === LinkColor.primary ? theme.palette.primary.main : theme.palette.secondary.main,
+})<LinkProps>(({withoutStyles, color, theme}: any) => {
 
-    ':hover': {
-        textDecoration: withoutStyles ? 'unset' : 'underline',
+    if (withoutStyles) return {}
+
+    return {
+        color: color === LinkColor.primary ? theme.palette.primary.main : theme.palette.secondary.main,
+
+        ':hover': {
+            textDecoration: 'underline'
+        }
     }
-}));
+});

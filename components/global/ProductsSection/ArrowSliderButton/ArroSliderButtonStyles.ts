@@ -7,6 +7,7 @@ export const getArrowSliderButton: getArrowButtonSliderType = (prev) => ({
     height: '40px',
     position: 'absolute',
     top: '50%',
+    transform: 'translateY(-50%)',
     left: prev ? '5px' : 'auto',
     right: prev ? 'auto' : '5px',
     zIndex: '10',

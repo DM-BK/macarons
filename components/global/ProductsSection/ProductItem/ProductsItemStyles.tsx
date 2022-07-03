@@ -1,5 +1,7 @@
 import {SxProps} from '@mui/material/styles'
 
+const isAll = true
+
 export const ProductsItemOuter: SxProps = {
 
     height: '100%',
@@ -7,12 +9,39 @@ export const ProductsItemOuter: SxProps = {
     position: 'relative',
     transition: 'all .25s ease-in-out',
     outline: '1px solid #f3f5f9',
+    width: {
+        xs: '100%',
+        // md: '31.3%'
+    },
+
 
     '&:hover': {
         boxShadow: '0px 4px 16px rgb(43 52 69 / 10%)',
     },
 
 }
+
+type getProductsItemOuterType = (isAll: boolean | undefined) => SxProps
+
+export const getProductsItemOuter: getProductsItemOuterType = (isAll = false) => ({
+
+    height: '100%',
+    overflow: 'hidden',
+    position: 'relative',
+    transition: 'all .25s ease-in-out',
+    outline: '1px solid #f3f5f9',
+    width: {
+        xs: '100%',
+        md: isAll ? '48.2%' : 'initial',
+        lg: isAll ? '31%' : 'initial'
+    },
+
+
+    '&:hover': {
+        boxShadow: '0px 4px 16px rgb(43 52 69 / 10%)',
+    },
+
+})
 
 export const ProductsItemLinkTop: SxProps = {
     color: 'inherit',
@@ -131,8 +160,6 @@ export const ProductsItemAdd: SxProps = {
     border: '1px solid',
     borderColor: 'primary.main',
     borderRadius: '0',
-    position: 'relative',
-    zIndex: 5000,
 
     '&:hover': {
         color: '#fff',
@@ -140,4 +167,8 @@ export const ProductsItemAdd: SxProps = {
         border: '1px solid',
         borderColor: '#4BB4B4'
     }
+}
+
+export const ProductsItemPointerEvents: SxProps = {
+    pointerEvents: 'none'
 }

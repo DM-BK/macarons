@@ -1,11 +1,13 @@
-import type {NextPage} from 'next'
 import Head from 'next/head'
 
-import {NavigationSection, ProductsSection} from '@components/pages/Home'
+import {NavigationSection} from '@components/pages/Home'
 import {SliderSection} from "@components/pages/Home";
+import {AllProducts} from "@components/global/AllProducts";
+import {HotProducts} from "@components/global/HotProducts/HotProducts";
+import {NewProducts} from "@components/global/NewProducts/NewProducts";
+import {Box} from "@common";
 
-const Home: NextPage = () => {
-
+const Home = () => {
     return (
         <>
             <Head>
@@ -15,8 +17,13 @@ const Home: NextPage = () => {
             </Head>
 
             <SliderSection/>
+            <Box sx={{mt: 3}}>
+                <NewProducts/>
+                <HotProducts/>
+                <AllProducts/>
+            </Box>
+
             <NavigationSection/>
-            <ProductsSection/>
 
         </>
     )

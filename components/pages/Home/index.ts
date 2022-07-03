@@ -1,3 +1,3 @@
 export * from './NavigationSection'
 export * from './SliderSection'
-export * from './ProductsSection'
+export * from '../../global/ProductsSection'

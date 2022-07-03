@@ -1,11 +1,21 @@
 import React, {useState} from 'react';
-import {Box, Link, IconButton, Typography, Image} from "@common";
+import {Box, Link, Typography, Image, IconButton} from "@common";
 import * as styles from './ProductsItemStyles'
 
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-export const ProductsItem = () => {
+export interface ProductsItemProps {
+    img: string
+    discount: number
+    isNew: boolean
+    label: string
+    currentPrice: number
+    oldPrice: number
+    isAll?: boolean
+}
+
+export const ProductsItem = ({img, currentPrice, oldPrice, isNew, discount, label, isAll}: ProductsItemProps) => {
 
     const [productsCount, setProductsCount] = useState(0)
 
@@ -13,23 +23,23 @@ export const ProductsItem = () => {
     const handleSubtractProduct = () => setProductsCount(prev => prev - 1)
 
     return (
-        <Box sx={styles.ProductsItemOuter}>
-            <Link sx={styles.ProductsItemLinkTop}>
+        <Box sx={styles.getProductsItemOuter(isAll)}>
+            <Link sx={styles.ProductsItemLinkTop} href={'/'}>
                 <Box sx={styles.ProductsItemTopInner}>
                     <Box>
                         <Box sx={styles.ProductsItemDiscount}>
-                            20% off
+                            {discount}% off
                         </Box>
                     </Box>
-                    <Box sx={styles.ProductsItemNew}>
+                    {isNew && <Box sx={styles.ProductsItemNew}>
                         new
                         <Box sx={styles.ProductsItemNewBottom}/>
-                    </Box>
+                    </Box>}
                     <Box sx={styles.ProductsItemImageBox}>
                         <Image
                             width={200}
                             height={200}
-                            src={'/chair.webp'}
+                            src={img}
                             alt={'chair'}
                             objectFit={'cover'}
                         />
@@ -39,11 +49,11 @@ export const ProductsItem = () => {
             <Box sx={styles.ProductsItemBottom}>
                 <Box sx={styles.ProductsItemBottomLeft}>
                     <Link withoutStyles href={'/'}>
-                        <Typography variant={'h3'} sx={styles.ProductsItemLinkBottomText}>Grey Sofa</Typography>
+                        <Typography variant={'h3'} sx={styles.ProductsItemLinkBottomText}>{label}</Typography>
                     </Link>
                     <Box sx={styles.ProductsItemPriceBox}>
-                        <Box sx={styles.ProductsItemPrice}>$11</Box>
-                        <Box sx={styles.ProductsItemOldPrice}>115</Box>
+                        <Box sx={styles.ProductsItemPrice}>${currentPrice}</Box>
+                        <Box sx={styles.ProductsItemOldPrice}>{oldPrice}</Box>
                     </Box>
                 </Box>
                 <Box sx={styles.ProductsItemCountBox}>
@@ -54,15 +64,15 @@ export const ProductsItem = () => {
                                 color={'primary'}
                                 onClick={handleSubtractProduct}
                             >
-                                <RemoveIcon/>
+                                <RemoveIcon sx={styles.ProductsItemPointerEvents} fontSize={'small'}/>
                             </IconButton>
                             <Typography variant={'h5'} sx={styles.ProductsItemCount}>{productsCount}</Typography>
                         </>
                         : null
                     }
-                    <IconButton sx={{...styles.ProductsItemAdd, alignSelf: 'flex-end'}} color={'primary'}
+                    <IconButton sx={{...styles.ProductsItemAdd}} color={'primary'}
                                 onClick={handleAddProduct}>
-                        <AddIcon/>
+                        <AddIcon fontSize={'small'} sx={styles.ProductsItemPointerEvents}/>
                     </IconButton>
                 </Box>
             </Box>
