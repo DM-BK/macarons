@@ -35,9 +35,7 @@ export const theme = createTheme({
 const GlobalStyles = () => {
 
     const styles: GlobalStylesProps['styles'] = {
-        'html': {
-            scrollBehavior: 'smooth'
-        }
+
     }
 
     return (

@@ -1,16 +1,11 @@
-import { ReactNode } from "react";
-import { ButtonProps as MuiButtonProps } from '@mui/material/Button';
+import {ButtonProps} from '@mui/material/Button';
 
-import { ButtonStyled } from "./ButtonStyled";
+import {ButtonStyled} from "./ButtonStyled";
 
 export enum variantButton {
   contained = 'contained',
   text = 'text',
   outlined = 'outlined',
-}
-
-export interface ButtonProps extends MuiButtonProps {
-  children: ReactNode;
 }
 
 export const Button = ({children, onClick, variant = variantButton.contained, color, sx, href, fullWidth}: ButtonProps) => {

@@ -1,11 +1,17 @@
-import React  from 'react';
+import React, {forwardRef} from 'react';
 import MuiBox, {BoxProps} from '@mui/material/Box'
 
-export const Box = ({children, sx = {}, component = 'div', onClick}: BoxProps) => {
+export const Box = forwardRef<HTMLElement, BoxProps>((
+    {
+        children,
+        sx = {},
+        component = 'div',
+        onClick
+    }, ref) => {
 
     return (
-        <MuiBox sx={sx} component={component} onClick={onClick}>
+        <MuiBox sx={sx} component={component} onClick={onClick} ref={ref}>
             {children}
         </MuiBox>
     );
-};
+})
