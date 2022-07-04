@@ -47,17 +47,3 @@ export const getLinksBox: GetStylesType = theme => ({
         display: 'flex'
     }
 })
-export const getBurgerBox: GetStylesType = theme => ({
-    border: 1,
-    borderColor: 'grey.400',
-    width: '42px',
-    height: '42px',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    [theme.breakpoints.up('md')]: {
-        display: 'none'
-    }
-})

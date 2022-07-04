@@ -1,5 +1,5 @@
 import React from 'react';
-import {ListItemText, ListItem, Link} from "@common";
+import {ListItemText, ListItem, Button, variantButton} from "@common";
 
 interface SideMenuItemProps {
     label: string
@@ -9,9 +9,9 @@ interface SideMenuItemProps {
 export const SideMenuItem = ({label, path}: SideMenuItemProps) => {
     return (
         <ListItem>
-            <Link href={path}>
+            <Button href={path} variant={variantButton.text} fullWidth>
                 <ListItemText>{label}</ListItemText>
-            </Link>
+            </Button>
         </ListItem>
     );
 };
