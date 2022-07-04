@@ -1,29 +1,8 @@
 import {SxProps} from '@mui/material/styles'
 
-const isAll = true
+type getProductsItemOuterType = (isAll?: boolean) => SxProps
 
-export const ProductsItemOuter: SxProps = {
-
-    height: '100%',
-    overflow: 'hidden',
-    position: 'relative',
-    transition: 'all .25s ease-in-out',
-    outline: '1px solid #f3f5f9',
-    width: {
-        xs: '100%',
-        // md: '31.3%'
-    },
-
-
-    '&:hover': {
-        boxShadow: '0px 4px 16px rgb(43 52 69 / 10%)',
-    },
-
-}
-
-type getProductsItemOuterType = (isAll: boolean | undefined) => SxProps
-
-export const getProductsItemOuter: getProductsItemOuterType = (isAll = false) => ({
+export const getProductsItemOuter: getProductsItemOuterType = (isAll) => ({
 
     height: '100%',
     overflow: 'hidden',
@@ -32,8 +11,8 @@ export const getProductsItemOuter: getProductsItemOuterType = (isAll = false) =>
     outline: '1px solid #f3f5f9',
     width: {
         xs: '100%',
-        md: isAll ? '48.2%' : 'initial',
-        lg: isAll ? '31%' : 'initial'
+        md: isAll ? '48.2%' : 'inherit',
+        lg: isAll ? '31%' : 'inherit'
     },
 
 

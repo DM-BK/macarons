@@ -46,7 +46,7 @@ export const allProducts: ProductsType = {
         currentPrice: 160,
         oldPrice: 260,
         label: 'Grey Sofa',
-        isNew: true,
+        isNew: false,
         discount: 5,
     },
     5: {
@@ -73,7 +73,7 @@ export const allProducts: ProductsType = {
         currentPrice: 160,
         oldPrice: 260,
         label: 'Grey Sofa',
-        isNew: true,
+        isNew: false,
         discount: 5,
     },
     8: {
@@ -91,7 +91,7 @@ export const allProducts: ProductsType = {
         currentPrice: 160,
         oldPrice: 260,
         label: 'Grey Sofa',
-        isNew: true,
+        isNew: false,
         discount: 5,
     }
 }

@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import {Navigation} from "swiper";
 import {Container, Typography, Slider, SliderItem} from "@common";
 
-import * as styles from './ProductsStyles'
+import * as styles from './ProductsSectionStyles'
 import {ArrowSliderButton} from './ArrowSliderButton'
 import {ProductsItem} from './ProductItem';
 import {ProductType} from "../../../products/productsConfig";
