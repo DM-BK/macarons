@@ -1,9 +1,14 @@
-import MuiContainer, {ContainerProps} from '@mui/material/Container'
+import {ContainerProps as MuiContainerProps} from '@mui/material/Container'
+import {ContainerStyled} from "@common/Container/ContainerStyled";
+
+export interface ContainerProps extends MuiContainerProps {
+
+}
 
 export const Container = ({children, sx, maxWidth}: ContainerProps) => {
     return (
-        <MuiContainer sx={sx} maxWidth={maxWidth}>
+        <ContainerStyled sx={sx} maxWidth={maxWidth}>
             {children}
-        </MuiContainer>
+        </ContainerStyled>
     );
 };

@@ -10,6 +10,7 @@ export const SliderSection = () => {
             <Slider
                 slidesPerView={1}
                 loop
+                speed={600}
                 modules={[Pagination]}
                 pagination={{clickable: true}}
             >
