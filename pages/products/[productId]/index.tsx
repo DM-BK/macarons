@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps<ProductType, Params> = async (contex
     if (!product) return {
         notFound: true
     }
-    // console.log(product)
+
     return {
         props: {
             ...product

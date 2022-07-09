@@ -1,15 +1,17 @@
 import React, {SyntheticEvent, useState} from 'react';
-import {Box, Container, Image, Typography, Rating, Button, variantButton, Slider, SliderItem, Tabs, Tab} from "@common";
-
-import * as styles from './ProductsItemStyles'
 
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import {FreeMode, Thumbs} from "swiper";
+
+import {Box, Container, Image, Typography, Rating, Button, variantButton, Slider, SliderItem, Tabs, Tab} from "@common";
 import {ProductDescription} from "@components/pages/Products/ProductsItem/ProductDescription/ProductDescription";
 import {ProductsReview} from "@components/pages/Products/ProductsItem/ProductsReview";
-import {ProductType} from "../../../../products/productsConfig";
+import {HotProducts} from "@components/global/HotProducts/HotProducts";
 
+import * as styles from './ProductsItemStyles'
+
+import {ProductType} from "../../../../products/productsConfig";
 
 export const ProductsItem = ({img, oldPrice, currentPrice, label}: ProductType) => {
     const [productQuantity, setProductQuantity] = useState(0)
@@ -183,6 +185,9 @@ export const ProductsItem = ({img, oldPrice, currentPrice, label}: ProductType) 
 
                     {tubsValue === 'description' && <ProductDescription/>}
                     {tubsValue === 'review' && <ProductsReview/>}
+                </Box>
+                <Box sx={styles.ProductsItemHotProductsBox}>
+                    <HotProducts/>
                 </Box>
             </Container>
         </Box>

@@ -157,3 +157,11 @@ export const ProductsItemAddToCartBtn: SxProps = {
     height: '38px',
     color: '#fff'
 }
+
+export const ProductsItemHotProductsBox: SxProps = {
+    mt: 4,
+    '& > div': {
+        pl: 0,
+        pr: 0
+    }
+}
