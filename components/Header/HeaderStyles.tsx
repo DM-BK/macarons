@@ -33,12 +33,6 @@ export const getAppBar: GetAppBarStylesType = (isAnimate) => ({
 })
 
 export const HeaderContainer: SxProps = {
-    maxWidth: {
-        xs: '425px',
-        sm: '768px',
-        md: '1024px',
-        lg: '1440px'
-    },
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center'

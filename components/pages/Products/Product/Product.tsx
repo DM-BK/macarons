@@ -5,12 +5,12 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import {FreeMode, Thumbs} from "swiper";
 
 import {Box, Container, Image, Typography, Rating, Button, variantButton, Slider, SliderItem, Tabs, Tab} from "@common";
-import {ProductDescription} from "@components/pages/Products/ProductsItem/ProductDescription/ProductDescription";
-import {ProductsReview} from "@components/pages/Products/ProductsItem/ProductsReview";
+import {ProductDescription} from "@components/pages/Products/Product/ProductDescription/ProductDescription";
+import {ProductReview} from "@components/pages/Products/Product/ProductReview";
 import {HotProducts} from "@components/global/HotProducts/HotProducts";
 import {useAddRemoveItem} from "@hooks";
 
-import * as styles from './ProductsItemStyles'
+import * as styles from './ProductStyles'
 
 import {ProductType} from "../../../../products/productsConfig";
 
@@ -19,7 +19,7 @@ enum TabsValue {
     review = 'review'
 }
 
-export const ProductsItem = ({img, oldPrice, currentPrice, label}: ProductType) => {
+export const Product = ({img, oldPrice, currentPrice, label}: ProductType) => {
     const [productQuantity, handleAddProduct, handleRemoveProduct] = useAddRemoveItem()
 
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
@@ -187,7 +187,7 @@ export const ProductsItem = ({img, oldPrice, currentPrice, label}: ProductType) 
                     </Tabs>
 
                     {tubsValue === TabsValue.description && <ProductDescription/>}
-                    {tubsValue === TabsValue.review && <ProductsReview/>}
+                    {tubsValue === TabsValue.review && <ProductReview/>}
                 </Box>
             </Container>
             <HotProducts/>

@@ -4,7 +4,7 @@ import {Container, Typography, Slider, SliderItem} from "@common";
 
 import * as styles from './ProductsSectionStyles'
 import {ArrowSliderButton} from './ArrowSliderButton'
-import {ProductsSliderItem} from './ProducSlidertItem';
+import {ProductsItem} from './ProductsItem';
 import {ProductType} from "../../../products/productsConfig";
 
 interface ProductsSectionProps {
@@ -55,7 +55,7 @@ export const ProductsSection = ({title, description, config}: ProductsSectionPro
                 <>
                     {config.map(product => (
                             <SliderItem key={product.id}>
-                                <ProductsSliderItem
+                                <ProductsItem
                                     id={product.id}
                                     img={product.img}
                                     label={product.label}

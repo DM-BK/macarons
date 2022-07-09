@@ -2,14 +2,14 @@ import React from 'react';
 import {useForm, Controller, SubmitHandler} from 'react-hook-form'
 import {Box, Typography, Rating, TextField, Button, Form} from '@common'
 
-import * as styles from './ProductsReviewFormStyles'
+import * as styles from './ProductReviewFormStyles'
 
 type FormValues = {
     rating: number
     messageBody: string
 }
 
-export const ProductsReviewForm = () => {
+export const ProductReviewForm = () => {
     const {control, handleSubmit, reset, formState: {errors, isValid}} = useForm<FormValues>({
         defaultValues: {
             rating: 5,
@@ -19,7 +19,6 @@ export const ProductsReviewForm = () => {
     })
 
     const onSubmit: SubmitHandler<FormValues> = (data) => {
-        console.log(data)
         reset()
     }
 
