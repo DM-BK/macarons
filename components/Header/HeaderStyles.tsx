@@ -1,7 +1,6 @@
 import {SxProps, Theme} from '@mui/material/styles'
-import {SystemStyleObject} from '@mui/system/styleFunctionSx'
 
-type GetStylesType = (theme: Theme) => SystemStyleObject<Theme>
+type GetStylesType = (theme: Theme) => SxProps
 
 type GetAppBarStylesType = (isAnimate: boolean) => SxProps<Theme>
 
@@ -34,16 +33,30 @@ export const getAppBar: GetAppBarStylesType = (isAnimate) => ({
 })
 
 export const HeaderContainer: SxProps = {
+    maxWidth: {
+        xs: '425px',
+        sm: '768px',
+        md: '1024px',
+        lg: '1440px'
+    },
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center'
 }
 
 export const getLinksBox: GetStylesType = theme => ({
-    display: 'none',
+    display: 'flex',
+    visibility: {
+        xs: 'hidden',
+        md: 'visible',
+    },
+    width: {
+      xs: '0',
+      md: 'auto',
+    },
+    height: {
+      xs: '0',
+      md: '100%'
+    },
     gap: '20px',
-
-    [theme.breakpoints.up('md')]: {
-        display: 'flex'
-    }
 })

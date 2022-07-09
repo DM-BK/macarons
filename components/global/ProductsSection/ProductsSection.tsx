@@ -56,6 +56,7 @@ export const ProductsSection = ({title, description, config}: ProductsSectionPro
                     {config.map(product => (
                             <SliderItem key={product.id}>
                                 <ProductsItem
+                                    id={product.id}
                                     img={product.img}
                                     label={product.label}
                                     currentPrice={product.currentPrice}

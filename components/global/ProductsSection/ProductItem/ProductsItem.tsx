@@ -13,9 +13,10 @@ export interface ProductsItemProps {
     currentPrice: number
     oldPrice: number
     isAll?: boolean
+    id: number
 }
 
-export const ProductsItem = ({img, currentPrice, oldPrice, isNew, discount, label, isAll}: ProductsItemProps) => {
+export const ProductsItem = ({img, currentPrice, oldPrice, isNew, discount, label, isAll, id}: ProductsItemProps) => {
 
     const [productsCount, setProductsCount] = useState(0)
 
@@ -24,7 +25,7 @@ export const ProductsItem = ({img, currentPrice, oldPrice, isNew, discount, labe
 
     return (
         <Box sx={styles.getProductsItemOuter(isAll)}>
-            <Link sx={styles.ProductsItemLinkTop} href={'/'}>
+            <Link sx={styles.ProductsItemLinkTop} href={'/products/' + id}>
                 <Box sx={styles.ProductsItemTopInner}>
                     <Box>
                         <Box sx={styles.ProductsItemDiscount}>

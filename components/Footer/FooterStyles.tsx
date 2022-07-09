@@ -6,6 +6,15 @@ export const Footer: SxProps = {
     color: '#fff',
 }
 
+export const FooterContainer: SxProps = {
+    maxWidth: {
+        xs: '425px',
+        sm: '768px',
+        md: '1024px',
+        lg: '1440px'
+    },
+}
+
 export const LogoBox: SxProps = {
     mb: 3
 }

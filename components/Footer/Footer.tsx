@@ -14,7 +14,7 @@ import { headerRoutes } from '@components/Header/routes';
 export const Footer = () => {
     return (
         <Box component={'div'} sx={styles.Footer}>
-            <Container maxWidth={'lg'}>
+            <Container sx={styles.FooterContainer}>
                 <Box sx={styles.LogoBox}>
                     <Image src={'/logoWhite.svg'} alt={'bazar logo'} width={98.8} height={28}/>
                 </Box>
