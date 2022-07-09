@@ -1,8 +1,13 @@
-import MuiTypography, {TypographyProps} from '@mui/material/Typography'
+import MuiTypography, {TypographyProps as MuiTypographyProps,} from '@mui/material/Typography'
 
-export const Typography = ({children, variant, sx}: TypographyProps) => {
+interface TypographyProps extends MuiTypographyProps {
+    component?: any
+}
+
+export const Typography = ({children, variant, sx, component}: TypographyProps) => {
+
     return (
-        <MuiTypography variant={variant} sx={sx}>
+        <MuiTypography variant={variant} sx={sx} component={component}>
             {children}
         </MuiTypography>
     );
