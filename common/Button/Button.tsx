@@ -8,10 +8,10 @@ export enum variantButton {
   outlined = 'outlined',
 }
 
-export const Button = ({children, onClick, variant = variantButton.contained, color, sx, href, fullWidth}: ButtonProps) => {
+export const Button = ({children, disabled, onClick, variant = variantButton.contained, color, sx, href, fullWidth, type}: ButtonProps) => {
 
   return (
-    <ButtonStyled fullWidth={fullWidth} href={href} onClick={onClick} variant={variant} color={color} sx={sx}>
+    <ButtonStyled fullWidth={fullWidth} disabled={disabled} href={href} onClick={onClick} variant={variant} color={color} sx={sx} type={type}>
       {children}
     </ButtonStyled>
   );

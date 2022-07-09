@@ -4,6 +4,8 @@ import {styled} from '@mui/material/styles'
 
 export const Main = styled('main')`
   flex: 2;
+  display: flex;
+  flex-direction: column;
 `
 
 export const AppBoxStyles = {
@@ -35,7 +37,9 @@ export const theme = createTheme({
 const GlobalStyles = () => {
 
     const styles: GlobalStylesProps['styles'] = {
-
+        'body': {
+            color: '#2B3445'
+        }
     }
 
     return (

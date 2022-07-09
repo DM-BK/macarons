@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Box, Link, Typography, Image, IconButton} from "@common";
 import * as styles from './ProductsItemStyles'
 
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import {useAddRemoveItem} from "@hooks";
+import {routes} from "@routes";
 
 export interface ProductsItemProps {
     img: string
@@ -13,18 +15,25 @@ export interface ProductsItemProps {
     currentPrice: number
     oldPrice: number
     isAll?: boolean
+    id: number
 }
 
-export const ProductsItem = ({img, currentPrice, oldPrice, isNew, discount, label, isAll}: ProductsItemProps) => {
-
-    const [productsCount, setProductsCount] = useState(0)
-
-    const handleAddProduct = () => setProductsCount(prev => prev + 1)
-    const handleSubtractProduct = () => setProductsCount(prev => prev - 1)
+export const ProductsItem = (
+    {
+        img,
+        currentPrice,
+        oldPrice,
+        isNew,
+        discount,
+        label,
+        isAll,
+        id
+    }: ProductsItemProps) => {
+    const [productsCount, handleAddProduct, handleSubtractProduct] = useAddRemoveItem()
 
     return (
         <Box sx={styles.getProductsItemOuter(isAll)}>
-            <Link sx={styles.ProductsItemLinkTop} href={'/'}>
+            <Link sx={styles.ProductsItemLinkTop} href={routes.PRODUCTS.path + `/${id}`}>
                 <Box sx={styles.ProductsItemTopInner}>
                     <Box>
                         <Box sx={styles.ProductsItemDiscount}>

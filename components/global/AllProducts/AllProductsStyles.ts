@@ -22,3 +22,16 @@ export const AllProductsDesc: SxProps = {
     mb: 2,
     fontSize: '14px'
 }
+
+export const AllProductsLoadMoreBox: SxProps = {
+    display: 'flex',
+    justifyContent: 'center',
+    mt: 3
+}
+
+export const AllProductsLoadMore: SxProps = {
+    fontSize: '13.6px',
+    color: '#fff',
+    alignSelf: 'center',
+    textTransform: 'unset'
+}
