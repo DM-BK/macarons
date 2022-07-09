@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 
 import {Box, Container, Typography, Button} from '@common'
 import {ProductsSliderItem} from "@components/global/ProductsSection/ProducSlidertItem";
@@ -7,17 +7,16 @@ import {allProductsConfig} from './allProductsConfig'
 import * as styles from './AllProductsStyles'
 import {AllProductsLoadMoreBox} from "./AllProductsStyles";
 
+const productsPerView = 9
 
 export const AllProducts = () => {
-    const productsLimitRef = useRef(9)
-    const [allProducts, setAllProducts] = useState(() => allProductsConfig.slice(0, productsLimitRef.current))
+    const [allProducts, setAllProducts] = useState(() => allProductsConfig.slice(0, productsPerView))
 
     const handleLoadMoreProducts = () => {
-        productsLimitRef.current += 9
-        setAllProducts(allProductsConfig.slice(0, productsLimitRef.current))
+        setAllProducts(allProductsConfig.slice(0, allProducts.length + productsPerView))
     }
 
-    const isLimit = productsLimitRef.current >= allProductsConfig.length
+    const areNoMoreProducts = allProducts.length >= allProductsConfig.length
 
     return (
         <Container sx={{mt: 8}}>
@@ -40,7 +39,7 @@ export const AllProducts = () => {
             </Box>
             <Box sx={AllProductsLoadMoreBox}>
                 <Button sx={styles.AllProductsLoadMore}
-                        disabled={isLimit}
+                        disabled={areNoMoreProducts}
                         onClick={handleLoadMoreProducts}>Load More</Button>
             </Box>
         </Container>

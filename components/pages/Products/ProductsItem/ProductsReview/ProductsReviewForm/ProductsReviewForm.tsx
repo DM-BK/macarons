@@ -12,13 +12,14 @@ type FormValues = {
 export const ProductsReviewForm = () => {
     const {control, handleSubmit, reset, formState: {errors, isValid}} = useForm<FormValues>({
         defaultValues: {
-            rating: 4,
+            rating: 5,
             messageBody: ''
         },
         mode: 'all'
     })
 
-    const onSubmit: SubmitHandler<FormValues> = ({rating, messageBody}) => {
+    const onSubmit: SubmitHandler<FormValues> = (data) => {
+        console.log(data)
         reset()
     }
 

@@ -8,7 +8,7 @@ import {Box, Container, Image, Typography, Rating, Button, variantButton, Slider
 import {ProductDescription} from "@components/pages/Products/ProductsItem/ProductDescription/ProductDescription";
 import {ProductsReview} from "@components/pages/Products/ProductsItem/ProductsReview";
 import {HotProducts} from "@components/global/HotProducts/HotProducts";
-import {useAddRemove} from "@hooks";
+import {useAddRemoveItem} from "@hooks";
 
 import * as styles from './ProductsItemStyles'
 
@@ -20,7 +20,7 @@ enum TabsValue {
 }
 
 export const ProductsItem = ({img, oldPrice, currentPrice, label}: ProductType) => {
-    const [productQuantity, handleAddProduct, handleRemoveProduct] = useAddRemove()
+    const [productQuantity, handleAddProduct, handleRemoveProduct] = useAddRemoveItem()
 
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
     const [tubsValue, setTabsValue] = useState(TabsValue.review)
