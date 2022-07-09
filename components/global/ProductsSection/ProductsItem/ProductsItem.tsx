@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, Link, Typography, Image, IconButton} from "@common";
-import * as styles from './ProductsSliderItemStyles'
+import * as styles from './ProductsItemStyles'
 
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -18,7 +18,7 @@ export interface ProductsItemProps {
     id: number
 }
 
-export const ProductsSliderItem = (
+export const ProductsItem = (
     {
         img,
         currentPrice,

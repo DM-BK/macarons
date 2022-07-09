@@ -1,6 +1,6 @@
 import React from 'react';
 import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from 'next'
-import {ProductsItem} from "@components/pages/Products/ProductsItem/ProductsItem";
+import {Product} from "@components/pages/Products/Product/Product";
 import {allProducts, ProductType} from '../../../products/productsConfig'
 
 type Params = {
@@ -46,7 +46,7 @@ const ProductItem = ({
                      }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
     return (
-        <ProductsItem
+        <Product
             isNew={isNew}
             img={img}
             id={id}

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import {Box, Container, Typography, Button} from '@common'
-import {ProductsSliderItem} from "@components/global/ProductsSection/ProducSlidertItem";
+import {ProductsItem} from "@components/global/ProductsSection/ProductsItem";
 import {allProductsConfig} from './allProductsConfig'
 
 import * as styles from './AllProductsStyles'
@@ -16,7 +16,7 @@ export const AllProducts = () => {
         setAllProducts(allProductsConfig.slice(0, allProducts.length + productsPerView))
     }
 
-    const areNoMoreProducts = allProducts.length >= allProductsConfig.length
+    const isMaxProducts = allProducts.length >= allProductsConfig.length
 
     return (
         <Container sx={{mt: 8}}>
@@ -24,7 +24,7 @@ export const AllProducts = () => {
             <Typography sx={styles.AllProductsDesc}>Tall blind but were, been folks not the expand</Typography>
             <Box sx={styles.AllProductsFlexContainer}>
                 {allProducts.map(product => (
-                    <ProductsSliderItem
+                    <ProductsItem
                         id={product.id}
                         key={product.id}
                         img={product.img}
@@ -39,7 +39,7 @@ export const AllProducts = () => {
             </Box>
             <Box sx={AllProductsLoadMoreBox}>
                 <Button sx={styles.AllProductsLoadMore}
-                        disabled={areNoMoreProducts}
+                        disabled={isMaxProducts}
                         onClick={handleLoadMoreProducts}>Load More</Button>
             </Box>
         </Container>

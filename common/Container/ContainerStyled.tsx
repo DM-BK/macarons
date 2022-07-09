@@ -6,23 +6,11 @@ export const ContainerStyled = styled(Container)<ContainerProps>(({theme}) => ({
     [theme.breakpoints.up('xs')]: {
         maxWidth: '450px'
     },
-    [theme.breakpoints.up('sm')]: {
-        maxWidth: '768px'
-    },
     [theme.breakpoints.up('md')]: {
         maxWidth: '1024px'
     },
     [theme.breakpoints.up('lg')]: {
         maxWidth: '1440px'
     },
-    // [theme.breakpoints.up('lg')]: {
-    //     maxWidth: '1300px'
-    // },
-    // maxWidth: {
-    //     xs: '425px',
-    //     sm: '768px',
-    //     md: '1024px',
-    //     lg: '1440px'
-    // },
 
 }))
