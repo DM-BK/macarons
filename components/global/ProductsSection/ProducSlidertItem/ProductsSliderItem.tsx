@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Box, Link, Typography, Image, IconButton} from "@common";
 import * as styles from './ProductsItemStyles'
 
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import {useAddRemove} from "@hooks";
 
 export interface ProductsItemProps {
     img: string
@@ -16,12 +17,8 @@ export interface ProductsItemProps {
     id: number
 }
 
-export const ProductsItem = ({img, currentPrice, oldPrice, isNew, discount, label, isAll, id}: ProductsItemProps) => {
-
-    const [productsCount, setProductsCount] = useState(0)
-
-    const handleAddProduct = () => setProductsCount(prev => prev + 1)
-    const handleSubtractProduct = () => setProductsCount(prev => prev - 1)
+export const ProductsSliderItem = ({img, currentPrice, oldPrice, isNew, discount, label, isAll, id}: ProductsItemProps) => {
+    const [productsCount, handleAddProduct, handleSubtractProduct] = useAddRemove()
 
     return (
         <Box sx={styles.getProductsItemOuter(isAll)}>

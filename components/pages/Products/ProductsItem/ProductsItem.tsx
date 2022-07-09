@@ -8,25 +8,29 @@ import {Box, Container, Image, Typography, Rating, Button, variantButton, Slider
 import {ProductDescription} from "@components/pages/Products/ProductsItem/ProductDescription/ProductDescription";
 import {ProductsReview} from "@components/pages/Products/ProductsItem/ProductsReview";
 import {HotProducts} from "@components/global/HotProducts/HotProducts";
+import {useAddRemove} from "@hooks";
 
 import * as styles from './ProductsItemStyles'
 
 import {ProductType} from "../../../../products/productsConfig";
 
+enum TabsValue {
+    description = 'description',
+    review = 'review'
+}
+
 export const ProductsItem = ({img, oldPrice, currentPrice, label}: ProductType) => {
-    const [productQuantity, setProductQuantity] = useState(0)
+    const [productQuantity, handleAddProduct, handleRemoveProduct] = useAddRemove()
+
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
-    const [tubsValue, setTabsValue] = useState('description')
+    const [tubsValue, setTabsValue] = useState(TabsValue.review)
     const isOldPrice = true
 
-    const handleAddProduct = () => setProductQuantity(prev => prev + 1)
-    const handleRemoveProduct = () => setProductQuantity(prev => prev - 1)
-
-    const handleTabsChange = (event: SyntheticEvent, newValue: string) => setTabsValue(newValue)
+    const handleTabsChange = (event: SyntheticEvent, newValue: TabsValue) => setTabsValue(newValue)
 
     return (
         <Box sx={styles.ProductsItemWrapper}>
-            <Container maxWidth={'xl'}>
+            <Container maxWidth={'xl'} sx={{mb: 3}}>
                 <Box sx={styles.ProductsItemHeader}>
                     <Box sx={styles.ProductsItemImagesBox}>
                         <Box sx={styles.ProductsItemBigImagesBox}>
@@ -35,7 +39,6 @@ export const ProductsItem = ({img, oldPrice, currentPrice, label}: ProductType) 
                                 thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
                                 modules={[FreeMode, Thumbs]}
                                 allowTouchMove={false}
-                                // className="mySwiper2"
                             >
                                 <SliderItem>
                                     <Image
@@ -179,17 +182,15 @@ export const ProductsItem = ({img, oldPrice, currentPrice, label}: ProductType) 
                 <Box>
                     <Tabs value={tubsValue} onChange={handleTabsChange}
                           sx={{mb: 3, mt: 10, borderBottom: 1, borderColor: 'divider'}}>
-                        <Tab label={'Description'} value={'description'} sx={{textTransform: 'unset'}}/>
-                        <Tab label={'Review'} value={'review'} sx={{textTransform: 'unset'}}/>
+                        <Tab label={'Description'} value={TabsValue.description} sx={{textTransform: 'unset'}}/>
+                        <Tab label={'Review'} value={TabsValue.review} sx={{textTransform: 'unset'}}/>
                     </Tabs>
 
-                    {tubsValue === 'description' && <ProductDescription/>}
-                    {tubsValue === 'review' && <ProductsReview/>}
-                </Box>
-                <Box sx={styles.ProductsItemHotProductsBox}>
-                    <HotProducts/>
+                    {tubsValue === TabsValue.description && <ProductDescription/>}
+                    {tubsValue === TabsValue.review && <ProductsReview/>}
                 </Box>
             </Container>
+            <HotProducts/>
         </Box>
     );
 };

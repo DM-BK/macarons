@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 
 import {Box, Container, Typography, Button} from '@common'
-import {ProductsItem} from "@components/global/ProductsSection/ProductItem";
+import {ProductsSliderItem} from "@components/global/ProductsSection/ProducSlidertItem";
 import {allProductsConfig} from './allProductsConfig'
 
 import * as styles from './AllProductsStyles'
@@ -12,7 +12,7 @@ export const AllProducts = () => {
     const productsLimitRef = useRef(9)
     const [allProducts, setAllProducts] = useState(() => allProductsConfig.slice(0, productsLimitRef.current))
 
-    const loadMoreProducts = () => {
+    const handleLoadMoreProducts = () => {
         productsLimitRef.current += 9
         setAllProducts(allProductsConfig.slice(0, productsLimitRef.current))
     }
@@ -25,7 +25,7 @@ export const AllProducts = () => {
             <Typography sx={styles.AllProductsDesc}>Tall blind but were, been folks not the expand</Typography>
             <Box sx={styles.AllProductsFlexContainer}>
                 {allProducts.map(product => (
-                    <ProductsItem
+                    <ProductsSliderItem
                         id={product.id}
                         key={product.id}
                         img={product.img}
@@ -41,7 +41,7 @@ export const AllProducts = () => {
             <Box sx={AllProductsLoadMoreBox}>
                 <Button sx={styles.AllProductsLoadMore}
                         disabled={isLimit}
-                        onClick={loadMoreProducts}>Load More</Button>
+                        onClick={handleLoadMoreProducts}>Load More</Button>
             </Box>
         </Container>
     );

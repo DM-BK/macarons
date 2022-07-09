@@ -1,7 +1,20 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import MuiTextField, {TextFieldProps} from '@mui/material/TextField'
 
-export const TextField = ({variant, label, InputProps, sx, multiline, rows, placeholder}: TextFieldProps) => {
+type RefType = HTMLDivElement
+
+export const TextField = forwardRef<RefType, TextFieldProps>((
+    {
+        variant,
+        label,
+        InputProps,
+        sx,
+        multiline,
+        rows,
+        placeholder,
+        value,
+        ...rest
+    }, ref) => {
     return (
         <MuiTextField
             variant={variant}
@@ -11,6 +24,9 @@ export const TextField = ({variant, label, InputProps, sx, multiline, rows, plac
             multiline={multiline}
             rows={rows}
             placeholder={placeholder}
+            ref={ref}
+            value={value}
+            {...rest}
         />
     );
-};
+})

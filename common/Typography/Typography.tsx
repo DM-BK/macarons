@@ -1,8 +1,7 @@
-import {ElementType} from "react";
 import MuiTypography, {TypographyProps as MuiTypographyProps,} from '@mui/material/Typography'
 
 interface TypographyProps extends MuiTypographyProps {
-    component?: any //?????
+    component?: any
 }
 
 export const Typography = ({children, variant, sx, component}: TypographyProps) => {

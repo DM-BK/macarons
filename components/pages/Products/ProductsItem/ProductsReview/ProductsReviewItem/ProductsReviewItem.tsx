@@ -2,7 +2,7 @@ import React from 'react';
 import {Avatar, Box, Rating, Typography} from "@common";
 import * as styles from './ProductsReviewItemStyles'
 
-export const ProductsReviewItemItem = () => {
+export const ProductsReviewItem = () => {
     return (
         <Box>
             <Box sx={styles.ProductsReviewItemBox}>
