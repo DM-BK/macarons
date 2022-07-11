@@ -35,15 +35,16 @@ export const getStaticProps: GetStaticProps<ProductType, Params> = async (contex
     }
 }
 
-const ProductItem = ({
-                         img,
-                         id,
-                         discount,
-                         isNew,
-                         oldPrice,
-                         currentPrice,
-                         label
-                     }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const ProductItem = (
+    {
+        img,
+        id,
+        discount,
+        isNew,
+        oldPrice,
+        currentPrice,
+        label
+    }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
     return (
         <Product

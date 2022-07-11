@@ -1,11 +1,11 @@
 import React from 'react';
-import {Box, Link, Typography, Image, IconButton} from "@common";
-import * as styles from './ProductsItemStyles'
+import {Box, Link, Typography, Image} from "@common";
 
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import {useAddRemoveItem} from "@hooks";
 import {routes} from "@routes";
+
+import * as styles from './ProductsItemStyles'
+import {AddRemoveItem} from "@components/global/AddRemoveItem/AddRemoveItem";
 
 export interface ProductsItemProps {
     img: string
@@ -65,25 +65,11 @@ export const ProductsItem = (
                         <Box sx={styles.ProductsItemOldPrice}>{oldPrice}</Box>
                     </Box>
                 </Box>
-                <Box sx={styles.ProductsItemCountBox}>
-                    {productsCount > 0
-                        ? <>
-                            <IconButton
-                                sx={styles.ProductsItemAdd}
-                                color={'primary'}
-                                onClick={handleSubtractProduct}
-                            >
-                                <RemoveIcon sx={styles.ProductsItemPointerEvents} fontSize={'small'}/>
-                            </IconButton>
-                            <Typography variant={'h5'} sx={styles.ProductsItemCount}>{productsCount}</Typography>
-                        </>
-                        : null
-                    }
-                    <IconButton sx={{...styles.ProductsItemAdd}} color={'primary'}
-                                onClick={handleAddProduct}>
-                        <AddIcon fontSize={'small'} sx={styles.ProductsItemPointerEvents}/>
-                    </IconButton>
-                </Box>
+                <AddRemoveItem
+                    productsCount={productsCount}
+                    handleAddProduct={handleAddProduct}
+                    handleSubtractProduct={handleSubtractProduct}
+                />
             </Box>
         </Box>
     );

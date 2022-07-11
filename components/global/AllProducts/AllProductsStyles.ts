@@ -5,9 +5,13 @@ export const AllProductsFlexContainer: SxProps = {
     flexWrap: 'wrap',
     justifyContent: {
         sx: 'center',
-        md: 'space-between'
+        md: 'space-between',
+        lg: 'flex-start'
     },
-    rowGap: '30px'
+    rowGap: '30px',
+    columnGap: {
+        lg: '30px'
+    }
 }
 
 export const AllProductsTitle: SxProps = {
