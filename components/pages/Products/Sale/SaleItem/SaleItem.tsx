@@ -8,11 +8,14 @@ import {AddRemoveItem} from "@components/global/AddRemoveItem";
 import {Box, Image, Typography, Rating, Link, IconButton} from '@common'
 
 import * as styles from './SaleItemStyles'
+import {AddToCart} from "@components/global/AddToCart/AddToCart";
 
+interface SaleItemProps {
+    id: number
+}
 
-export const SaleItem = () => {
+export const SaleItem = ({id}: SaleItemProps) => {
     const [like, setLike] = useState(false)
-    const [productsCount, handleAddProduct, handleSubtractProduct] = useAddRemoveItem()
 
     const handleLike = () => setLike(prev => !prev)
 
@@ -50,14 +53,7 @@ export const SaleItem = () => {
                             <Typography sx={styles.OldPrice}>250.00</Typography>
                         </Box>
                     </Box>
-                    <AddRemoveItem
-                        icon={{fontSize: '18px'}}
-                        wrapper={{height: '88px'}}
-                        iconButton={{borderRadius: '3px', width: '28px', height: '28px', p: '3px'}}
-                        productsCount={productsCount}
-                        handleAddProduct={handleAddProduct}
-                        handleSubtractProduct={handleSubtractProduct}
-                    />
+                    <AddToCart id={id}/>
                 </Box>
             </Box>
         </Box>

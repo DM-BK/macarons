@@ -4,51 +4,47 @@ import {SxProps} from "@mui/material/styles";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-import {Button, Box, Typography} from '@common'
+import {Button, IconButton, Box, Typography} from '@common'
 
 import * as styles from './AddRemoveItemStyles'
+import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
+import {addItem, removeItem} from "../../../store/features/cart/CartSlice";
 
 interface AddRemoveItemProps {
-    productsCount: number
-    handleSubtractProduct: () => void
-    handleAddProduct: () => void,
-    iconButton?: SxProps
-    wrapper?: SxProps
-    icon?: SxProps
+    id: string
 }
 
-export const AddRemoveItem = (
-    {
-        productsCount,
-        handleAddProduct,
-        handleSubtractProduct,
-        iconButton,
-        wrapper,
-        icon
-    }: AddRemoveItemProps) => {
+export const AddRemoveItem = ({id}: AddRemoveItemProps) => {
+    const productsCount = useAppSelector(state => state.cart.cartItems[id])
+    const dispatch = useAppDispatch()
+    console.log({productsCount})
+    const handleAddProduct = () => {
+        dispatch(addItem(Number(id)))
+    }
+
+    const handleSubtractProduct = () => {
+        if (productsCount < 1) return
+        dispatch(removeItem(Number(id)))
+    }
+
     return (
-        <Box sx={{...styles.AddRemove, ...wrapper}}>
-            {
-                productsCount > 0
-                    ? <>
-                        <Button
-                            variant={'outlined'}
-                            onClick={handleSubtractProduct}
-                            sx={{...styles.AddRemoveButton, ...iconButton}}
-                        >
-                            <RemoveIcon sx={{...styles.Icon, ...icon}}/>
-                        </Button>
-                        <Typography sx={styles.ProductsCount}>{productsCount}</Typography>
-                    </>
-                    : null
-            }
-            <Button
-                variant={'outlined'}
+        <Box sx={styles.AddRemove}>
+            <IconButton
+                color={'primary'}
                 onClick={handleAddProduct}
-                sx={{...styles.AddRemoveButton, ...iconButton}}
+                sx={styles.AddRemoveButton}
             >
-                <AddIcon sx={{...styles.Icon, ...icon}}/>
-            </Button>
+                <AddIcon sx={styles.Icon}/>
+            </IconButton>
+            <Typography sx={styles.ProductsCount}>{productsCount}</Typography>
+            <IconButton
+                color={'primary'}
+                onClick={handleSubtractProduct}
+                sx={styles.AddRemoveButton}
+                disabled={productsCount === 1}
+            >
+                <RemoveIcon sx={styles.Icon}/>
+            </IconButton>
         </Box>
     );
 };

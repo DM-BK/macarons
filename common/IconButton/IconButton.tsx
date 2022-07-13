@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import MuiIconButton, {IconButtonProps} from '@mui/material/IconButton'
 
-export const IconButton = ({children, sx, color, onClick, size}: IconButtonProps) => {
+export const IconButton = forwardRef<HTMLElement, IconButtonProps>((props,  ref) => {
     return (
-        <MuiIconButton sx={sx} color={color} onClick={onClick} size={size}>
-            {children}
+        <MuiIconButton {...props}>
+            {props.children}
         </MuiIconButton>
     );
-};
+})

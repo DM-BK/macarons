@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {Box, Container, Typography, Button} from '@common'
+import {Box, Container, Typography, Button, Item} from '@common'
 import {ProductsItem} from "@components/global/ProductsSection/ProductsItem";
 import {allProductsConfig} from './allProductsConfig'
 
@@ -22,7 +22,7 @@ export const AllProducts = () => {
         <Container sx={{mt: 8}}>
             <Typography sx={styles.AllProductsTitle}>All Products</Typography>
             <Typography sx={styles.AllProductsDesc}>Tall blind but were, been folks not the expand</Typography>
-            <Box sx={styles.AllProductsFlexContainer}>
+            <Item container sx={styles.AllProductsFlexContainer} spacing={4}>
                 {allProducts.map(product => (
                     <ProductsItem
                         id={product.id}
@@ -33,10 +33,9 @@ export const AllProducts = () => {
                         isNew={product.isNew}
                         discount={product.discount}
                         label={product.label}
-                        isAll
                     />
                 ))}
-            </Box>
+            </Item>
             <Box sx={AllProductsLoadMoreBox}>
                 <Button sx={styles.AllProductsLoadMore}
                         disabled={isMaxProducts}

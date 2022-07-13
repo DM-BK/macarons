@@ -37,7 +37,7 @@ export const Sale = () => {
             <SaleCategories/>
             <Container sx={styles.SaleItemContainer}>
                 {shownProducts.map(val => (
-                    <SaleItem key={val}/>
+                    <SaleItem key={val} id={val}/>
                 ))}
             </Container>
             <Container>

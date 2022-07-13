@@ -15,21 +15,11 @@ export const ProductsCount: SxProps = {
 }
 
 export const AddRemoveButton: SxProps = {
-    height: '30px',
-    minWidth: 'unset',
-    width: '30px',
+    height: '32px',
+    width: '32px',
     border: '1px solid',
-    borderColor: 'primary.main',
-    borderRadius: '0',
-
-    '&:hover': {
-        color: '#fff',
-        background: '#4BB4B4',
-        border: '1px solid',
-        borderColor: '#4BB4B4'
-    }
 }
 
 export const Icon: SxProps = {
-    pointerEvents: 'none'
+    pointerEvents: 'none',
 }

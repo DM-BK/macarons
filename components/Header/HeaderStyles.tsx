@@ -28,7 +28,8 @@ export const getAppBar: GetAppBarStylesType = (isAnimate) => ({
     '@keyframes fadein2': animate,
 
     '& .MuiToolbar-root': {
-        padding: '0'
+        padding: '0',
+        m: '8px 0'
     }
 })
 
