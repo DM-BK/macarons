@@ -1,10 +1,11 @@
 import React from 'react';
+import {Box} from '@common'
 
 const Products = () => {
+
     return (
-        <div>
-            Products
-        </div>
+        <Box>
+        </Box>
     );
 };
 

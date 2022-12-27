@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {Navigation} from "swiper";
 import {Container, Typography, Slider, SliderItem} from "@common";
+import Portal from '@mui/material/Portal'
 
 import * as styles from './ProductsSectionStyles'
 import {ArrowSliderButton} from './ArrowSliderButton'
@@ -63,6 +64,7 @@ export const ProductsSection = ({title, description, config}: ProductsSectionPro
                                     oldPrice={product.oldPrice}
                                     isNew={product.isNew}
                                     discount={product.discount}
+                                    isSwiper
                                 />
                             </SliderItem>
                         )

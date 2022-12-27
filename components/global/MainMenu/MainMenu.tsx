@@ -2,6 +2,7 @@ import {Tab, Tabs} from "@common";
 import {RouteProps} from "@routes";
 import {useRouter} from "next/router";
 import {useState, SyntheticEvent, useEffect} from "react";
+import {Cart} from "@components/global/Cart";
 
 interface MainMenuProps {
     routes: RouteProps[];
@@ -23,10 +24,13 @@ export const MainMenu = ({routes, sx}: MainMenuProps) => {
     };
 
     return (
-        <Tabs value={value} onChange={handleTabs} sx={sx}>
-            {routes.map(route => (
-                <Tab key={route.path} value={route.path} label={route.label}/>
-            ))}
-        </Tabs>
+        <>
+            <Tabs value={value} onChange={handleTabs} sx={sx}>
+                {routes.map(route => (
+                    <Tab key={route.path} value={route.path} label={route.label}/>
+                ))}
+            </Tabs>
+            <Cart/>
+        </>
     )
 };

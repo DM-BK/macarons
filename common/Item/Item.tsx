@@ -1,12 +1,8 @@
-import { ReactNode } from "react";
-import Grid, {GridProps} from "@mui/material/Grid";
+// import Grid, {GridProps} from "@mui/material/Grid";
+export {default as Item} from "@mui/material/Grid";
 
-interface ItemProps extends GridProps {
-  children: ReactNode,
-}
-
-export const Item = ({children}: ItemProps) => (
-  <Grid item>
-    {children}
-  </Grid>
-);
+// export const Item = ({children, ...rest}: GridProps) => (
+//   <Grid {...rest}>
+//     {children}
+//   </Grid>
+// );

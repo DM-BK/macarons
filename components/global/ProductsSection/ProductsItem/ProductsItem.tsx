@@ -1,11 +1,11 @@
-import React from 'react';
-import {Box, Link, Typography, Image, IconButton} from "@common";
-import * as styles from './ProductsItemStyles'
+import React, {ReactNode, forwardRef} from 'react';
+import {Box, Link, Typography, Image, Item} from "@common";
 
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import {useAddRemoveItem} from "@hooks";
 import {routes} from "@routes";
+
+import * as styles from './ProductsItemStyles'
+import {AddToCart} from "@components/global/AddToCart/AddToCart";
+import {useAppSelector} from "../../../../hooks/redux";
 
 export interface ProductsItemProps {
     img: string
@@ -14,11 +14,26 @@ export interface ProductsItemProps {
     label: string
     currentPrice: number
     oldPrice: number
-    isAll?: boolean
     id: number
+    isSwiper?: boolean
 }
 
-export const ProductsItem = (
+interface WrapperProps {
+    children: ReactNode
+    isSwiper?: boolean
+}
+
+const Wrapper = ({children, isSwiper}: WrapperProps) => {
+    if (isSwiper) {
+        return <Box sx={styles.ProductsItemOuter}>{children}</Box>
+    }
+
+    return <Item item xs={12} md={6} lg={4}>
+        <Box sx={styles.ProductsItemOuter}>{children}</Box>
+    </Item>
+}
+
+export const ProductsItem = forwardRef<HTMLElement, ProductsItemProps>((
     {
         img,
         currentPrice,
@@ -26,13 +41,15 @@ export const ProductsItem = (
         isNew,
         discount,
         label,
-        isAll,
-        id
-    }: ProductsItemProps) => {
-    const [productsCount, handleAddProduct, handleSubtractProduct] = useAddRemoveItem()
+        id,
+        isSwiper
+    },
+    ref
+) => {
+
 
     return (
-        <Box sx={styles.getProductsItemOuter(isAll)}>
+        <Wrapper isSwiper={isSwiper}>
             <Link sx={styles.ProductsItemLinkTop} href={routes.PRODUCTS.path + `/${id}`}>
                 <Box sx={styles.ProductsItemTopInner}>
                     <Box>
@@ -50,7 +67,7 @@ export const ProductsItem = (
                             height={200}
                             src={img}
                             alt={'chair'}
-                            objectFit={'cover'}
+                            objectFit={'contain'}
                         />
                     </Box>
                 </Box>
@@ -65,26 +82,8 @@ export const ProductsItem = (
                         <Box sx={styles.ProductsItemOldPrice}>{oldPrice}</Box>
                     </Box>
                 </Box>
-                <Box sx={styles.ProductsItemCountBox}>
-                    {productsCount > 0
-                        ? <>
-                            <IconButton
-                                sx={styles.ProductsItemAdd}
-                                color={'primary'}
-                                onClick={handleSubtractProduct}
-                            >
-                                <RemoveIcon sx={styles.ProductsItemPointerEvents} fontSize={'small'}/>
-                            </IconButton>
-                            <Typography variant={'h5'} sx={styles.ProductsItemCount}>{productsCount}</Typography>
-                        </>
-                        : null
-                    }
-                    <IconButton sx={{...styles.ProductsItemAdd}} color={'primary'}
-                                onClick={handleAddProduct}>
-                        <AddIcon fontSize={'small'} sx={styles.ProductsItemPointerEvents}/>
-                    </IconButton>
-                </Box>
+                <AddToCart ref={ref} id={id}/>
             </Box>
-        </Box>
+        </Wrapper>
     );
-};
+})

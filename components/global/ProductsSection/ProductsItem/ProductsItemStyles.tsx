@@ -1,26 +1,18 @@
 import {SxProps} from '@mui/material/styles'
 
-type getProductsItemOuterType = (isAll?: boolean) => SxProps
-
-export const getProductsItemOuter: getProductsItemOuterType = (isAll) => ({
+export const ProductsItemOuter: SxProps = {
 
     height: '100%',
-    overflow: 'hidden',
+    // overflow: 'hidden',
     position: 'relative',
     transition: 'all .25s ease-in-out',
     outline: '1px solid #f3f5f9',
-    width: {
-        xs: '100%',
-        md: isAll ? '48.2%' : 'inherit',
-        lg: isAll ? '31%' : 'inherit'
-    },
-
 
     '&:hover': {
         boxShadow: '0px 4px 16px rgb(43 52 69 / 10%)',
     },
 
-})
+}
 
 export const ProductsItemLinkTop: SxProps = {
     color: 'inherit',
@@ -90,6 +82,7 @@ export const ProductsItemImageBox: SxProps = {
 export const ProductsItemBottom: SxProps = {
     padding: 2,
     display: 'flex',
+    mt: 6,
 }
 
 export const ProductsItemLinkBottomText: SxProps = {
@@ -117,37 +110,4 @@ export const ProductsItemPrice: SxProps = {
 export const ProductsItemOldPrice: SxProps = {
     color: '#7d879c',
     textDecoration: 'line-through'
-}
-
-export const ProductsItemCountBox: SxProps = {
-    height: '102.2px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '5px',
-    justifyContent: 'flex-end'
-}
-
-export const ProductsItemCount: SxProps = {
-    color: 'rgb(43, 52, 69)',
-    fontSize: '14px'
-}
-
-export const ProductsItemAdd: SxProps = {
-    height: '30px',
-    width: '30px',
-    border: '1px solid',
-    borderColor: 'primary.main',
-    borderRadius: '0',
-
-    '&:hover': {
-        color: '#fff',
-        background: '#4BB4B4',
-        border: '1px solid',
-        borderColor: '#4BB4B4'
-    }
-}
-
-export const ProductsItemPointerEvents: SxProps = {
-    pointerEvents: 'none'
 }

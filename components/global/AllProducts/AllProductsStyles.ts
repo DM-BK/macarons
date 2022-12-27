@@ -1,13 +1,14 @@
 import {SxProps} from '@mui/material/styles'
 
 export const AllProductsFlexContainer: SxProps = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: {
-        sx: 'center',
-        md: 'space-between'
-    },
-    rowGap: '30px'
+    // display: 'flex',
+    // flexWrap: 'wrap',
+    // m: '-30px 0 0 -30px',
+    // justifyContent: {
+    //     sx: 'center',
+    //     md: 'space-between',
+    //     lg: 'flex-start'
+    // },
 }
 
 export const AllProductsTitle: SxProps = {
