@@ -1,8 +1,7 @@
 import React, {forwardRef} from 'react';
 import MuiBox, {BoxProps as MuiBoxProps} from '@mui/material/Box'
-import {AnimationProps} from 'framer-motion'
 
-type BoxProps = AnimationProps & MuiBoxProps
+type BoxProps = MuiBoxProps
 
 export const Box = forwardRef<HTMLElement, BoxProps>((
     {

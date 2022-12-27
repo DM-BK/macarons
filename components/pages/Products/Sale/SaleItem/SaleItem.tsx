@@ -3,8 +3,6 @@ import React, {useState} from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-import {useAddRemoveItem} from "@hooks";
-import {AddRemoveItem} from "@components/global/AddRemoveItem";
 import {Box, Image, Typography, Rating, Link, IconButton} from '@common'
 
 import * as styles from './SaleItemStyles'

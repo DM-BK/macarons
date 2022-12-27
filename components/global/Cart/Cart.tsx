@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Box, Drawer, IconButton, Image, Typography, Badge} from '@common'
 import {CartItem} from "@components/global/Cart/CartItem";
 
@@ -7,27 +7,42 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import {useAppSelector} from "../../../hooks/redux";
 
 import * as styles from './CartStyles'
-import {HeaderCloseIcon} from "./CartStyles";
 import {allProducts} from "../../../products/productsConfig";
-
 
 export const Cart = () => {
     const {cartItems, totalQuantity} = useAppSelector(state => state.cart)
-    // const ref = useRef<HTMLElement | null>(null)
+    const [isAnimate, setIsAnimate] = useState(false)
 
     const items: string[] = Object.keys(cartItems)
     const [open, setOpen] = useState(false)
 
-    const handleOpen = () => {
+    // const prevItemsLengthRef = useRef(items.length)
 
-        setOpen(true)
-    }
+    const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
+
+    useEffect(() => {
+        if (items.length > 0 && !isAnimate) {
+            setIsAnimate(true)
+            setTimeout(() => {
+                setIsAnimate(state => !state)
+            }, 1000)
+        }
+    }, [items.length])
 
     return (
         <>
-            <Badge id={'badge'} badgeContent={totalQuantity} color={'primary'} sx={{'.MuiBadge-badge': {color: '#fff'}}}>
-                <IconButton id={'cartIcon'} onClick={handleOpen} sx={{bgcolor: '#F3F5F9'}}>
+            <Badge
+                id={'cart'}
+                badgeContent={totalQuantity}
+                color={'primary'}
+                sx={{
+                    '.MuiBadge-badge': {
+                        color: '#fff'
+                    },
+                }}
+            >
+                <IconButton id={'cartIcon'} onClick={handleOpen} sx={styles.IconButton(isAnimate)}>
                     <ShoppingBagOutlinedIcon/>
                 </IconButton>
             </Badge>
