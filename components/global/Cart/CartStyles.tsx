@@ -1,37 +1,12 @@
 import {keyframes, SxProps} from '@mui/material/styles'
 
-const rumble = keyframes`
-  0% {
-    scale: 1.3;
-    rotate: 25deg;
-  }
-
-  20% {
-    rotate: -25deg;
-  }
-
-  40% {
-    rotate: 25deg;
-  }
-
-  60% {
-    rotate: -25deg
-  }
-
-  80% {
-    rotate: 25deg;
-    scale: 1.3;
-  }
-
-  100% {
-    scale: 1;
-    rotate: 0;
-  }
-`
+export const Icon: (isAnimate: boolean) => SxProps = (isAnimate) => ({
+    animation: isAnimate ? `${rumble} 0.7s ease` : ''
+})
 
 export const IconButton: (isAnimate: boolean) => SxProps = (isAnimate) => ({
     bgcolor: '#F3F5F9',
-    animation: isAnimate ? `${rumble} 1s` : ''
+    animation: isAnimate ? `${buttonAnimation} 1s ease` : ''
 })
 
 export const CartDrawer: SxProps = {
@@ -81,3 +56,35 @@ export const EmptyCartText: SxProps = {
     fontWeight: 300,
     whiteSpace: 'pre',
 }
+
+const buttonAnimation = keyframes`
+  0%, 50%, 100% {
+    transform: translateY(0px);
+  }
+
+  20%, 80% {
+    transform: translateY(5px);
+  }
+
+  40% {
+    transform: translateY(-20px);
+  }
+  
+  60% {
+    transform: translateY(-5px);
+  }
+`
+
+const rumble = keyframes`
+  100% {
+    rotate: 0;
+  }
+
+  30%, 50%, 70% {
+    rotate: 17deg;
+  }
+
+  40%, 60%, {
+    rotate: -17deg;
+  }
+`

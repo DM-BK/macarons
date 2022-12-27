@@ -43,7 +43,7 @@ export const Cart = () => {
                 }}
             >
                 <IconButton id={'cartIcon'} onClick={handleOpen} sx={styles.IconButton(isAnimate)}>
-                    <ShoppingBagOutlinedIcon/>
+                    <ShoppingBagOutlinedIcon sx={styles.Icon(isAnimate)} />
                 </IconButton>
             </Badge>
             <Drawer
