@@ -8,7 +8,7 @@ export const SliderItemContentBox: SxProps = {
     },
 
     paddingTop: '64px',
-    background: 'url("/rose.jpeg") center no-repeat',
+    background: 'url("/furniture.jpeg") center no-repeat',
     backgroundSize: 'cover',
     color: '#2b3445',
 }

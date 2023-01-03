@@ -1,7 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {Navigation} from "swiper";
 import {Container, Typography, Slider, SliderItem} from "@common";
-import Portal from '@mui/material/Portal'
 
 import * as styles from './ProductsSectionStyles'
 import {ArrowSliderButton} from './ArrowSliderButton'

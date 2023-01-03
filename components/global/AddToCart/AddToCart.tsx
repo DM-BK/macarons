@@ -1,5 +1,6 @@
-import React, {forwardRef, useEffect} from 'react';
+import React from 'react';
 import {Box, IconButton, Tooltip} from '@common'
+import toast from 'react-hot-toast'
 
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import RemoveShoppingCartOutlinedIcon from '@mui/icons-material/RemoveShoppingCartOutlined';
@@ -12,12 +13,18 @@ interface AddToCartProps {
     id: number
 }
 
-export const AddToCart = forwardRef<HTMLElement, AddToCartProps>(({id}) => {
+export const AddToCart = ({id}: AddToCartProps) => {
     const productsCount = useAppSelector(state => state.cart.cartItems[id])
     const dispatch = useAppDispatch()
 
-    const handleAddItem = () => dispatch(addItem(id))
-    const handleRemoveItem = () => dispatch(removeItem(id))
+    const handleAddItem = () => {
+        dispatch(addItem(id))
+        toast.success('Item has added to the cart')
+    }
+    const handleRemoveItem = () => {
+        dispatch(removeItem(id))
+        toast.error('Item has removed from the cart')
+    }
 
     return (
         <Box sx={styles.AddToCart}>
@@ -39,4 +46,4 @@ export const AddToCart = forwardRef<HTMLElement, AddToCartProps>(({id}) => {
             }
         </Box>
     );
-})
+}

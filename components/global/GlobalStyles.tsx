@@ -1,6 +1,5 @@
 import MuiGlobalStyles, {GlobalStylesProps} from '@mui/material/GlobalStyles'
-import {createTheme} from '@mui/material/styles'
-import {styled} from '@mui/material/styles'
+import {createTheme, styled} from '@mui/material/styles'
 
 export const Main = styled('main')`
   flex: 2;
@@ -39,6 +38,12 @@ const GlobalStyles = () => {
     const styles: GlobalStylesProps['styles'] = {
         'body': {
             color: '#2B3445'
+        },
+        '.toast': {
+            minWidth: '300px',
+            '& div:nth-of-type(2)': {
+                justifyContent: 'start'
+            }
         }
     }
 

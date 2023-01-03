@@ -13,22 +13,20 @@ export const Cart = () => {
     const {cartItems, totalQuantity} = useAppSelector(state => state.cart)
     const [isAnimate, setIsAnimate] = useState(false)
 
-    const items: string[] = Object.keys(cartItems)
+    const itemsId: string[] = Object.keys(cartItems)
     const [open, setOpen] = useState(false)
-
-    // const prevItemsLengthRef = useRef(items.length)
 
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
 
     useEffect(() => {
-        if (items.length > 0 && !isAnimate) {
+        if (itemsId.length > 0 && !isAnimate) {
             setIsAnimate(true)
             setTimeout(() => {
                 setIsAnimate(state => !state)
             }, 1000)
         }
-    }, [items.length])
+    }, [itemsId.length])
 
     return (
         <>
@@ -63,7 +61,7 @@ export const Cart = () => {
                 {totalQuantity > 0
                     ? (
                         <Box>
-                            {items.map(itemId => (
+                            {itemsId.map(itemId => (
                                 <CartItem key={itemId} id={itemId} product={allProducts[Number(itemId)]}/>
                             ))}
                         </Box>
