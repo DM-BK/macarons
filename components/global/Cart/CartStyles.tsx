@@ -84,7 +84,7 @@ const rumble = keyframes`
     rotate: 17deg;
   }
 
-  40%, 60%, {
+  40%, 60% {
     rotate: -17deg;
   }
 `

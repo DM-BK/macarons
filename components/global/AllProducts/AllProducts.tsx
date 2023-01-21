@@ -22,7 +22,7 @@ export const AllProducts = () => {
         <Container sx={{mt: 8}}>
             <Typography sx={styles.AllProductsTitle}>All Products</Typography>
             <Typography sx={styles.AllProductsDesc}>Tall blind but were, been folks not the expand</Typography>
-            <Item container sx={styles.AllProductsFlexContainer} spacing={4}>
+            <Item container spacing={4}>
                 {allProducts.map(product => (
                     <ProductsItem
                         id={product.id}

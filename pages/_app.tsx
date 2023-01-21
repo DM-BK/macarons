@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type {AppProps} from 'next/app'
 import {Provider} from 'react-redux'
 import {ThemeProvider} from '@mui/material/styles'
+import {Toaster} from 'react-hot-toast'
 
 import {Box} from "@common";
 import {Footer} from "@components/Footer";
@@ -21,6 +22,11 @@ function MyApp({Component, pageProps}: AppProps) {
                     </Main>
                     <Footer/>
                 </Box>
+                <Toaster
+                    gutter={4}
+                    position="bottom-right"
+                    toastOptions={{className: 'toast'}}
+                />
             </ThemeProvider>
         </Provider>
     </>
