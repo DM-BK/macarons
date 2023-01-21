@@ -22,7 +22,11 @@ function MyApp({Component, pageProps}: AppProps) {
                     </Main>
                     <Footer/>
                 </Box>
-                <Toaster gutter={4} position="bottom-right" toastOptions={{className: 'toast'}}/>
+                <Toaster
+                    gutter={4}
+                    position="bottom-right"
+                    toastOptions={{className: 'toast'}}
+                />
             </ThemeProvider>
         </Provider>
     </>
