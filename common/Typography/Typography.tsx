@@ -4,10 +4,10 @@ interface TypographyProps extends MuiTypographyProps {
     component?: any
 }
 
-export const Typography = ({children, variant, sx, component}: TypographyProps) => {
+export const Typography = ({children, variant, sx, component, className}: TypographyProps) => {
 
     return (
-        <MuiTypography variant={variant} sx={sx} component={component}>
+        <MuiTypography variant={variant} sx={sx} component={component} className={className}>
             {children}
         </MuiTypography>
     );
