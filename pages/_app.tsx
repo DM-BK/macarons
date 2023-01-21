@@ -15,7 +15,7 @@ function MyApp({Component, pageProps}: AppProps) {
             <ThemeProvider theme={theme}>
                 <Box sx={AppBoxStyles}>
                     <GlobalStyles/>
-                    <Header/>
+                    <Header />
                     <Main>
                         <Component {...pageProps}/>
                     </Main>
