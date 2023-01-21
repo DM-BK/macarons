@@ -1,5 +1,12 @@
-import React from 'react';
-import MuiListItem, {ListItemProps} from '@mui/material/ListItem'
+import React, { ReactNode } from 'react';
+
+import MuiListItem from '@mui/material/ListItem';
+import { SxProps, Theme } from '@mui/material';
+
+interface ListItemProps {
+    children: ReactNode,
+    sx?: SxProps<Theme>,
+}
 
 export const ListItem = ({children, sx}: ListItemProps) => {
     return (

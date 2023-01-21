@@ -1,12 +1,15 @@
 import { ReactNode } from "react";
-import Grid, {GridProps} from "@mui/material/Grid";
+import Grid from "@mui/material/Grid";
+import { Theme, SxProps } from "@mui/material";
 
-interface SectionProps extends GridProps {
-  children: ReactNode
+interface SectionProps {
+  children: ReactNode,
+  spacing: number,
+  sx?: SxProps<Theme>;
 }
 
-export const Section = ({children}: SectionProps) => (
-  <Grid container>
+export const Section = ({children, sx}: SectionProps) => (
+  <Grid container sx={sx}>
     {children}
   </Grid>
 );

@@ -1,8 +1,16 @@
-import MuiListSubheader, {ListSubheaderProps} from "@mui/material/ListSubheader";
+import { ReactNode } from "react";
 
-export const ListSubheader = ({children}:ListSubheaderProps) => {
+import MuiListSubheader from "@mui/material/ListSubheader";
+import { SxProps, Theme } from "@mui/material";
+
+interface ListSubheaderProps {
+  children: ReactNode,
+  sx?: SxProps<Theme>,
+}
+
+export const ListSubheader = ({children, sx}: ListSubheaderProps) => {
   return (
-    <MuiListSubheader>
+    <MuiListSubheader sx={sx}>
       {children}
     </MuiListSubheader>
   );
