@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 
-import {Container, Image, AppBar, Toolbar} from "@common";
-import {MobileMenu} from "@components/Header/MobileMenu";
+import { Container, Image, AppBar, Toolbar } from "@common";
+import { MobileMenu } from "@components/Header/MobileMenu";
 import { MainMenu } from '@components/global/MainMenu';
+import {Cart} from "@components/global/Cart";
+
+import { headerRoutes } from './routes';
 
 import * as styles from "./HeaderStyles";
-import { headerRoutes } from './routes';
 
 export const Header = () => {
     const [isAnimate, setIsAnimate] = useState(false)
@@ -23,6 +25,8 @@ export const Header = () => {
                 <Container sx={styles.HeaderContainer} maxWidth={'lg'}>
                     <Image src={'/logo.svg'} alt="bazar logo" width={98.8} height={28} />
                     <MainMenu routes={headerRoutes} sx={styles.getLinksBox} />
+                    <Cart/>
+                    
                     <MobileMenu />
                 </Container>
             </Toolbar>

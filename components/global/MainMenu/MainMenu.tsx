@@ -1,8 +1,9 @@
+import {useState, SyntheticEvent, useEffect} from "react";
+
 import {Tab, Tabs} from "@common";
 import {RouteProps} from "@routes";
 import {useRouter} from "next/router";
-import {useState, SyntheticEvent, useEffect} from "react";
-import {Cart} from "@components/global/Cart";
+
 
 interface MainMenuProps {
     routes: RouteProps[];
@@ -19,7 +20,7 @@ export const MainMenu = ({routes, sx}: MainMenuProps) => {
     }, [router.pathname])
 
     const handleTabs = (_: SyntheticEvent, newValue: string) => {
-        console.log(newValue)
+
         router.push(newValue);
     };
 
@@ -30,7 +31,6 @@ export const MainMenu = ({routes, sx}: MainMenuProps) => {
                     <Tab key={route.path} value={route.path} label={route.label}/>
                 ))}
             </Tabs>
-            <Cart/>
         </>
     )
 };

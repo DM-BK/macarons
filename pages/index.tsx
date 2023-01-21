@@ -20,10 +20,10 @@ const Home = () => {
             <SliderSection/>
 
             <Box sx={{mt: 3, mb: 3}}>
-                <TopSaleProducts/>
-                <NewProducts/>
-                <HotProducts/>
-                <AllProducts/>
+                <TopSaleProducts />
+                <NewProducts />
+                <HotProducts />
+                <AllProducts />
             </Box>
 
             <NavigationSection/>
