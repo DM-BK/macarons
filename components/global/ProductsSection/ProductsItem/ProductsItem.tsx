@@ -4,7 +4,7 @@ import { Box, Link, Typography, Image, Item } from '@common'
 import { routes } from '@routes'
 
 import * as styles from './ProductsItemStyles'
-import { AddToCart } from '@components/global/AddToCart/AddToCart'
+import {AddToCart} from "@components/global/AddToCart";
 
 export interface ProductsItemProps {
     img: string

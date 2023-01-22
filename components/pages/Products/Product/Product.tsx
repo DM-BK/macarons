@@ -12,7 +12,7 @@ import {useAddRemoveItem} from "@hooks";
 
 import * as styles from './ProductStyles'
 
-import {ProductType} from "../../../../products/productsConfig";
+import {ProductType} from "@products";
 
 enum TabsValue {
     description = 'description',

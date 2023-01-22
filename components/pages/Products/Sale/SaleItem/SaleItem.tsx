@@ -6,7 +6,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import {Box, Image, Typography, Rating, Link, IconButton} from '@common'
 
 import * as styles from './SaleItemStyles'
-import {AddToCart} from "@components/global/AddToCart/AddToCart";
+import {AddToCart} from "@components/global/AddToCart";
 
 interface SaleItemProps {
     id: number
