@@ -37,3 +37,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 e-commerce-site-fe.iml
+.vscode
