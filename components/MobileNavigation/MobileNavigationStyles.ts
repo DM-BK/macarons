@@ -1,4 +1,4 @@
-import {SxProps} from '@mui/material/styles'
+import { SxProps } from '@mui/material/styles'
 
 export const Container: SxProps = {
   display: {
@@ -19,4 +19,4 @@ export const Container: SxProps = {
 
 export const Navigation: SxProps = {
   width: '375px',
-};
+}

@@ -1,9 +1,9 @@
-import {allProducts, ProductType} from '@products'
+import { allProducts, ProductType } from '@products'
 
 export const topSaleProducts: ProductType[] = [
-    allProducts['1'],
-    allProducts['2'],
-    allProducts['3'],
-    allProducts['4'],
-    allProducts['5'],
+  allProducts['1'],
+  allProducts['2'],
+  allProducts['3'],
+  allProducts['4'],
+  allProducts['5'],
 ]

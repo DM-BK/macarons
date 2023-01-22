@@ -1,5 +1,5 @@
 export interface IconProps {
-  height?: string,
-  width?: string,
-  color?: string,
+  height?: string
+  width?: string
+  color?: string
 }

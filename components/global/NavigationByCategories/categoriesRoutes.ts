@@ -1,4 +1,4 @@
-import { routes } from "@routes";
+import { routes } from '@routes'
 
 export const categoriesRoutes = [
   routes.CAKES,
@@ -6,4 +6,4 @@ export const categoriesRoutes = [
   routes.CUPCAKES,
   routes.MACARONS,
   routes.PIES,
-];
+]
