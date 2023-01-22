@@ -1,6 +1,5 @@
 import Head from 'next/head'
 
-import {NavigationSection} from '@components/pages/Home'
 import {SliderSection} from "@components/pages/Home";
 import {TopSaleProducts} from "@components/pages/Home";
 import {AllProducts} from "@components/global/AllProducts";
@@ -25,9 +24,6 @@ const Home = () => {
                 <HotProducts />
                 <AllProducts />
             </Box>
-
-            <NavigationSection/>
-
         </>
     )
 }

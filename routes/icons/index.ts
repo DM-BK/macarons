@@ -1,0 +1,5 @@
+export * from './CupcakeIcon'
+export * from './CakeIcon'
+export * from './CakesByDesignIcon'
+export * from './MacaronsIcon'
+export * from './PiesIcon'
