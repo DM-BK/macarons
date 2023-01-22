@@ -3,7 +3,7 @@ import { SxProps } from '@mui/material/styles'
 export const Container: SxProps = {
   display: {
     xs: 'flex',
-    md: 'none',
+    lg: 'none',
   },
   width: '100%',
   justifyContent: 'center',
