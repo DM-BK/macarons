@@ -10,11 +10,9 @@ export const Title: SxProps = {
 }
 
 export const List: SxProps = {
-  minWidth: '200px',
+  minWidth: '210px',
 }
 
 export const Link: SxProps = {
-  display: 'flex',
-  gap: '5px',
   color: 'rgba(0, 0, 0, 0.6)',
 }
