@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import {SliderSection} from "@components/pages/Home";
-import {TopSaleProducts} from "@components/pages/Home";
+import {CategorySection} from "@components/pages/Home";
 import {AllProducts} from "@components/global/AllProducts";
 import {HotProducts} from "@components/global/HotProducts/HotProducts";
 import {NewProducts} from "@components/global/NewProducts/NewProducts";
@@ -19,7 +19,7 @@ const Home = () => {
             <SliderSection/>
 
             <Box sx={{mt: 3, mb: 3}}>
-                <TopSaleProducts />
+                <CategorySection />
                 <NewProducts />
                 <HotProducts />
                 <AllProducts />

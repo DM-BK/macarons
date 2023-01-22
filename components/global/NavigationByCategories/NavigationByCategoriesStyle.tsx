@@ -9,7 +9,12 @@ export const Title: SxProps = {
   fontWeight: 400,
 }
 
+export const List: SxProps = {
+  minWidth: '200px',
+}
+
 export const Link: SxProps = {
-  marginLeft: '5px',
+  display: 'flex',
+  gap: '5px',
   color: 'rgba(0, 0, 0, 0.6)',
 }
