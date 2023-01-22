@@ -13,7 +13,7 @@ export const AppBoxStyles = {
     minHeight: '100vh'
 }
 
-export const theme = createTheme({
+export let theme = createTheme({
     breakpoints: {
         values: {
             xs: 0,
@@ -32,6 +32,31 @@ export const theme = createTheme({
         }
     }
 })
+
+theme = {
+    ...theme,
+    components: {
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    fontFamily: '"Nunito", sans-serif',
+                }
+            }
+        },
+        // MuiButtonBase: {
+        //     styleOverrides: {
+        //
+        //     }
+        // },
+        MuiTab: {
+            styleOverrides: {
+                root: {
+                    fontFamily: '"Nunito", sans-serif',
+                }
+            }
+        }
+    }
+}
 
 const GlobalStyles = () => {
 

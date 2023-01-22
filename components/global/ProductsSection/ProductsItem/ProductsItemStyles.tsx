@@ -50,7 +50,7 @@ export const ProductsItemNew: SxProps = {
     top: '0',
     right: '20px',
     width: '40px',
-    height: '42px',
+    height: '52px',
     backgroundColor: '#4bb4b4',
 
     display: 'flex',
@@ -59,17 +59,9 @@ export const ProductsItemNew: SxProps = {
     color: '#fff',
 
     fontSize: '12px',
-    fontWeight: '400'
-}
+    fontWeight: '400',
 
-export const ProductsItemNewBottom: SxProps = {
-    position: 'absolute',
-    bottom: '-10px',
-    height: '10px',
-    width: '40px',
-    borderLeft: '20px solid #4bb4b4',
-    borderRight: '20px solid #4bb4b4',
-    borderBottom: '10px solid transparent'
+    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%)',
 }
 
 export const ProductsItemImageBox: SxProps = {

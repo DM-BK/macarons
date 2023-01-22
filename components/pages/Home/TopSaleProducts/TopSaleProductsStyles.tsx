@@ -1,6 +1,16 @@
 import { SxProps } from '@mui/material/styles'
 
-type TopSaleProductsGridItemType = (number: string) => SxProps
+export const gridArea: {
+    [key: number]: string
+} = {
+    1: 'first',
+    2: 'second',
+    3: 'third',
+    4: 'fourth',
+    5: 'fifth',
+}
+
+type TopSaleProductsItemType = (position: string) => SxProps
 
 export const Container: SxProps = {
     mb: '30px',
@@ -24,73 +34,73 @@ export const TopSaleProductsGrid: SxProps = {
     },
 }
 
-export const getTopSaleProductsGridItem: TopSaleProductsGridItemType = (
-    number
+export const getTopSaleProductsGridItem: TopSaleProductsItemType = (
+    position
 ) => ({
-    gridArea: number,
+    gridArea: position,
     background: '#F5F5F5',
     p: '24px',
     position: 'relative',
+    textAlign: 'start',
+    isolation: 'isolate',
+    transition: 'box-shadow .3s, scale .3s',
+    cursor: 'pointer',
 
-    '.label': {
-        fontSize: '14px',
-        lineHeight: '1.5',
+    '&:hover': {
+        boxShadow: '0 0 5px 2px rgba(0, 0, 0, .05)',
+        scale: '1.01'
     },
+})
 
-    '.sale': {
-        color: 'primary.main',
-        fontSize: '35px',
-        fontWeight: '600',
-        lineHeight: '1.5',
-    },
+export const Category: TopSaleProductsItemType = (position) => ({
+    fontSize: '14px',
+    lineHeight: '1.5',
+})
 
-    '.up-to': {
-        fontSize: '24px',
-        fontWeight: '600',
-        lineHeight: '1.5',
-        textTransform: 'uppercase',
-    },
+export const Sale: TopSaleProductsItemType = (position) => ({
+    color: 'primary.main',
+    fontSize: '35px',
+    fontWeight: '600',
+    lineHeight: '1.5',
+})
 
-    button: {
-        background: 'transparent',
-        color: 'inherit',
+export const Discount: TopSaleProductsItemType = (position) => ({
+    fontSize: '24px',
+    fontWeight: '600',
+    lineHeight: '1.5',
+    textTransform: 'uppercase',
+})
+
+export const Button: SxProps = {
+    background: 'transparent',
+    color: 'inherit',
+    border: 0,
+    boxShadow: 'none',
+    p: '4px 12px',
+    fontSize: '12px',
+    textTransform: 'initial',
+    textDecoration: 'underline',
+    mt: '5px',
+
+    '&:hover': {
+        background: 'rgba(43, 52, 69, 0.04)',
         border: 0,
         boxShadow: 'none',
-        p: '4px 12px',
-        fontSize: '12px',
-        textTransform: 'initial',
-        textDecoration: 'underline',
-        mt: '5px',
-
-        '&:hover': {
-            background: 'rgba(43, 52, 69, 0.04)',
-            border: 0,
-            boxShadow: 'none',
-            textDecoration: 'none',
-        },
+        textDecoration: 'none',
     },
+}
 
-    '.image-box': {
-        position: 'absolute',
-        width: '200px',
-        height: 'calc(100% - 50px)',
-        right: '0',
-        top: '50%',
-        translate: '0 -50%',
+export const ImageBox: TopSaleProductsItemType = (position) => ({
+    position: 'absolute',
+    width: [ 'third'].includes(position) ? '100%' : '200px',
+    height: 'calc(100% - 50px)',
+    right: '0',
+    top: '50%',
+    translate: '0 -50%',
+    zIndex: -2,
 
-        img: {
-            objectFit: 'contain',
-            height: '100%',
-        },
-    },
-
-    '&.second, &.third': {
-        textAlign: 'center',
-        isolation: 'isolate',
-
-        '.image-box': {
-            width: '100%',
-            zIndex: '-1',
-        },
+    'img': {
+        objectFit: 'contain',
+        height: '100%',
     },
 })

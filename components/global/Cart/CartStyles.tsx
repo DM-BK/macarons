@@ -11,7 +11,10 @@ export const IconButton: (isAnimate: boolean) => SxProps = (isAnimate) => ({
 
 export const CartDrawer: SxProps = {
     '.MuiDrawer-paper': {
-        minWidth: '400px',
+        minWidth: {
+            xs: '100%',
+            sm: '400px'
+        },
         height: '100vh'
     }
 }

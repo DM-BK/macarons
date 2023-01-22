@@ -10,6 +10,8 @@ import {Header} from "@components/Header";
 import GlobalStyles, {AppBoxStyles, Main, theme} from "../components/global/GlobalStyles";
 import {store} from "../store/store";
 
+import "@fontsource/nunito"
+
 function MyApp({Component, pageProps}: AppProps) {
     return <>
         <Provider store={store}>

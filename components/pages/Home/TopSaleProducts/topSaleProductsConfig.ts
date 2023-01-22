@@ -7,13 +7,3 @@ export const topSaleProducts: ProductType[] = [
     allProducts['4'],
     allProducts['5'],
 ]
-
-export const gridArea: {
-    [key: number]: string
-} = {
-    1: 'first',
-    2: 'second',
-    3: 'third',
-    4: 'fourth',
-    5: 'fifth'
-}
