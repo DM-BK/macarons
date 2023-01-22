@@ -1,16 +1,26 @@
-import {SxProps} from '@mui/material/styles'
+import { SxProps } from '@mui/material/styles'
 
 export const SliderItemContentBox: SxProps = {
     //между слайдами при 100% ширины есть щель, как по-другому решить, в душе не ебу... и лучше не лезь, а то сожрет
     width: {
         xs: '101%',
-        lg: '102%'
+        lg: '102%',
+    },
+    position: 'relative',
+    isolation: 'isolate',
+
+    '&:before': {
+        content: '""',
+        position: 'absolute',
+        inset: 0,
+        background: 'rgba(0, 0, 0, .3)',
+        zIndex: '-1'
     },
 
     paddingTop: '64px',
     background: 'url("/furniture.jpeg") center no-repeat',
     backgroundSize: 'cover',
-    color: '#2b3445',
+    color: '#fff',
 }
 
 export const SlideItemContentInnerBox: SxProps = {
@@ -20,7 +30,7 @@ export const SlideItemContentInnerBox: SxProps = {
     gap: '20px',
     alignItems: {
         xs: 'center',
-        md: 'flex-start'
+        md: 'flex-start',
     },
     maxWidth: {
         xs: '100%',
@@ -29,8 +39,8 @@ export const SlideItemContentInnerBox: SxProps = {
     },
     textAlign: {
         xs: 'center',
-        md: 'start'
-    }
+        md: 'start',
+    },
 }
 
 export const SlideItemContentTitle: SxProps = {
@@ -38,13 +48,13 @@ export const SlideItemContentTitle: SxProps = {
     fontSize: {
         xs: '40px',
         md: '50px',
-        lg: '60px'
-    }
+        lg: '60px',
+    },
 }
 
 export const SlideItemContentDescription: SxProps = {
     fontSize: '14px',
-    color: '#7d879c',
+    color: '#fff',
 }
 
 export const SlideItemContentButton: SxProps = {
