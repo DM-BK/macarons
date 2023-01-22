@@ -3,8 +3,8 @@ import {SxProps} from '@mui/material/styles'
 export const Title: SxProps = {
   lineHeight: '30px',
   margin: '10px 10px 5px',
-  paddingBottom: '6px',
-  paddingLeft: 0,
+  pb: '6px',
+  pl: 0,
   borderBottom: '2px dashed #4BB4B4',
   fontWeight: 400,
 }

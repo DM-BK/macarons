@@ -1,4 +1,4 @@
-import React, {ElementType, forwardRef, ReactNode} from 'react';
+import React, {ElementType, forwardRef, MouseEventHandler, ReactNode} from 'react';
 import MuiBox from '@mui/material/Box'
 import { SxProps, Theme } from '@mui/material';
 
@@ -6,7 +6,7 @@ interface BoxProps {
     children: ReactNode,
     sx?: SxProps<Theme>,
     component?: ElementType,
-    onClick?: any,
+    onClick?: MouseEventHandler<HTMLDivElement>,
 }
 
 export const Box = forwardRef<HTMLElement, BoxProps>((

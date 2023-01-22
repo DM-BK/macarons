@@ -7,7 +7,7 @@ interface BottomNavigationProps {
   value?: any,
   showLabels?: boolean,
   sx?: SxProps<Theme>,
-  onChange?: ((event: SyntheticEvent<Element, Event>, value: any) => void),
+  onChange?: (event: SyntheticEvent<Element, Event>, value: any) => void,
 }
 
 export const BottomNavigation = ({children, showLabels, value, sx, onChange}: BottomNavigationProps) => {
