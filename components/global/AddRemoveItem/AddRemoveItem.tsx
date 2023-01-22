@@ -1,10 +1,9 @@
 import React from 'react';
 
-import {SxProps} from "@mui/material/styles";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-import {Button, IconButton, Box, Typography} from '@common'
+import {IconButton, Box, Typography} from '@common'
 
 import * as styles from './AddRemoveItemStyles'
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
@@ -17,7 +16,7 @@ interface AddRemoveItemProps {
 export const AddRemoveItem = ({id}: AddRemoveItemProps) => {
     const productsCount = useAppSelector(state => state.cart.cartItems[id])
     const dispatch = useAppDispatch()
-    console.log({productsCount})
+
     const handleAddProduct = () => {
         dispatch(addItem(Number(id)))
     }

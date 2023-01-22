@@ -1,60 +1,106 @@
-import {SxProps} from '@mui/material/styles'
+import { SxProps } from '@mui/material/styles'
 
-type TopSaleProductsGridItemType = (number: string) => SxProps
+export const gridArea: {
+    [key: number]: string
+} = {
+    1: 'first',
+    2: 'second',
+    3: 'third',
+    4: 'fourth',
+    5: 'fifth',
+}
+
+type TopSaleProductsItemType = (position: string) => SxProps
+
+export const Container: SxProps = {
+    mb: '30px',
+}
 
 export const TopSaleProductsGrid: SxProps = {
     display: 'grid',
     gridTemplateColumns: {
         xs: '1fr',
-        md: 'repeat(5, minmax(15%, 1fr))'
+        md: '6fr 4fr',
     },
     gridTemplateRows: {
-        xs: 'repeat(5, 100px)',
-        md: 'repeat(6, 70px)'
+        xs: 'repeat(5, 230px)',
+        md: 'repeat(3, 230px)',
     },
-    gap: '30px',
+    gap: '24px',
     gridTemplateAreas: {
-        xs: "'first'\n" +
-            "'second'\n" +
-            "'fourth'\n" +
-            "'fifth'\n" +
-            "'third'",
+        xs: "'first'\n" + "'second'\n" + "'third'\n" + "'fourth'\n" + "'fifth'",
 
-        md: "'first first first second second'\n" +
-            "'first first first second second'\n" +
-            "'third third third fourth fourth'\n" +
-            "'third third third fourth fourth'\n" +
-            "'third third third fifth fifth'\n" +
-            "'third third third fifth fifth'",
-    }
+        md: "'first  second'\n" + "'third  fourth'\n" + "'third  fifth'\n",
+    },
 }
 
-export const getTopSaleProductsGridItem: TopSaleProductsGridItemType = number => ({
-    border: 1,
-    gridArea: number
+export const getTopSaleProductsGridItem: TopSaleProductsItemType = (
+    position
+) => ({
+    gridArea: position,
+    background: '#F5F5F5',
+    p: '24px',
+    position: 'relative',
+    textAlign: 'start',
+    isolation: 'isolate',
+    transition: 'box-shadow .3s, scale .3s',
+    cursor: 'pointer',
+
+    '&:hover': {
+        boxShadow: '0 0 5px 2px rgba(0, 0, 0, .05)',
+        scale: '1.01'
+    },
 })
 
-export const TopSaleProductsFirstElement: SxProps = {
-    gridArea: 'first',
-    border: 1,
+export const Category: TopSaleProductsItemType = (position) => ({
+    fontSize: '14px',
+    lineHeight: '1.5',
+})
+
+export const Sale: TopSaleProductsItemType = (position) => ({
+    color: 'primary.main',
+    fontSize: '35px',
+    fontWeight: '600',
+    lineHeight: '1.5',
+})
+
+export const Discount: TopSaleProductsItemType = (position) => ({
+    fontSize: '24px',
+    fontWeight: '600',
+    lineHeight: '1.5',
+    textTransform: 'uppercase',
+})
+
+export const Button: SxProps = {
+    background: 'transparent',
+    color: 'inherit',
+    border: 0,
+    boxShadow: 'none',
+    p: '4px 12px',
+    fontSize: '12px',
+    textTransform: 'initial',
+    textDecoration: 'underline',
+    mt: '5px',
+
+    '&:hover': {
+        background: 'rgba(43, 52, 69, 0.04)',
+        border: 0,
+        boxShadow: 'none',
+        textDecoration: 'none',
+    },
 }
 
-export const TopSaleProductsSecondElement: SxProps = {
-    gridArea: 'second',
-    border: 1,
-}
+export const ImageBox: TopSaleProductsItemType = (position) => ({
+    position: 'absolute',
+    width: [ 'third'].includes(position) ? '100%' : '200px',
+    height: 'calc(100% - 50px)',
+    right: '0',
+    top: '50%',
+    translate: '0 -50%',
+    zIndex: -2,
 
-export const TopSaleProductsThirdElement: SxProps = {
-    gridArea: 'third',
-    border: 1,
-}
-
-export const TopSaleProductsFourthElement: SxProps = {
-    gridArea: 'fourth',
-    border: 1,
-}
-
-export const TopSaleProductsFifthElement: SxProps = {
-    gridArea: 'fifth',
-    border: 1,
-}
+    'img': {
+        objectFit: 'contain',
+        height: '100%',
+    },
+})

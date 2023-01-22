@@ -1,16 +1,5 @@
 import {SxProps} from '@mui/material/styles'
 
-export const AllProductsFlexContainer: SxProps = {
-    // display: 'flex',
-    // flexWrap: 'wrap',
-    // m: '-30px 0 0 -30px',
-    // justifyContent: {
-    //     sx: 'center',
-    //     md: 'space-between',
-    //     lg: 'flex-start'
-    // },
-}
-
 export const AllProductsTitle: SxProps = {
     mb: 2,
     color: '#2b3445',

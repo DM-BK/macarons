@@ -23,7 +23,8 @@
       "@components": ["components"],
       "@components/*": ["components/*"],
       "@hooks": ["hooks"],
-      "@utils": ["utils"]
+      "@utils": ["utils"],
+      "@products": ["products"],
     },
     "sourceMap": true,
     "inlineSources": true,

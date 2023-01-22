@@ -11,7 +11,10 @@ export const IconButton: (isAnimate: boolean) => SxProps = (isAnimate) => ({
 
 export const CartDrawer: SxProps = {
     '.MuiDrawer-paper': {
-        minWidth: '400px',
+        minWidth: {
+            xs: '100%',
+            sm: '400px'
+        },
         height: '100vh'
     }
 }
@@ -84,7 +87,7 @@ const rumble = keyframes`
     rotate: 17deg;
   }
 
-  40%, 60%, {
+  40%, 60% {
     rotate: -17deg;
   }
 `
