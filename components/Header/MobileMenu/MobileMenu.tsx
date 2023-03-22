@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import {useRouter} from 'next/router'
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -11,9 +12,14 @@ import * as styles from './MobileMenuStyles'
 
 export const MobileMenu = () => {
     const [open, setOpen] = useState(false);
+    const router = useRouter()
 
     const handleClose = () => setOpen(false)
     const handleOpen = () => setOpen(true)
+
+    useEffect(() => {
+        setOpen(false)
+    }, [router.pathname])
 
     return (<>
         <Box sx={styles.getBurgerBox} onClick={handleOpen}>

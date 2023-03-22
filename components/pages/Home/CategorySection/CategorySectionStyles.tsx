@@ -102,7 +102,10 @@ export const Button: SxProps = {
 
 export const ImageBox: TopSaleProductsItemType = (position) => ({
     position: 'absolute',
-    width: [ 'third'].includes(position) ? '100%' : '200px',
+    width: {
+        xs: '200px',
+        md: ['third'].includes(position) ? '100%' : '200px'
+    },
     height: 'calc(100% - 50px)',
     right: '0',
     top: '50%',

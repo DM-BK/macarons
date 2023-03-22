@@ -1,32 +1,32 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
-import { BottomNavigation, BottomNavigationAction, Box, Drawer } from "@common";
-import { NavigationByCategories } from "@components/global/NavigationByCategories";
+import { BottomNavigation, BottomNavigationAction, Box, Drawer } from '@common'
+import { NavigationByCategories } from '@components/global/NavigationByCategories'
 
-import { navigationRoutes } from "./navigationRoutes";
+import { navigationRoutes } from './navigationRoutes'
 
-import * as styles from './MobileNavigationStyles';
+import * as styles from './MobileNavigationStyles'
 
 export const MobileNavigation = () => {
   const router = useRouter()
-  const [isOpenDrawer, setIsOpenDrawer] = useState(false);
-  const [pathname, setPathname] = useState('');
+  const [isOpenDrawer, setIsOpenDrawer] = useState(false)
+  const [pathname, setPathname] = useState('')
 
   useEffect(() => {
     setPathname(router.pathname)
-  }, [router.pathname]);
+  }, [router.pathname])
 
-  const handleSwitchIsOpen = () => setIsOpenDrawer((prevState) => !prevState);
+  const handleSwitchIsOpen = () => setIsOpenDrawer((prevState) => !prevState)
 
   const handleBottomNavigation = (_: any, newPathname: string) => {
-    setPathname(newPathname);
+    setPathname(newPathname)
 
-    if (newPathname === 'category') return handleSwitchIsOpen();
+    if (newPathname === 'category') return handleSwitchIsOpen()
 
-    setIsOpenDrawer(false);
-    router.push(newPathname);
-  };
+    setIsOpenDrawer(false)
+    router.push(newPathname)
+  }
 
   return (
     <Box sx={styles.Container}>
@@ -46,9 +46,9 @@ export const MobileNavigation = () => {
         ))}
       </BottomNavigation>
 
-      <Drawer anchor={'left'} open={isOpenDrawer} onClose={handleSwitchIsOpen} >
-          <NavigationByCategories />
-        </Drawer>
+      <Drawer anchor={'left'} open={isOpenDrawer} onClose={handleSwitchIsOpen}>
+        <NavigationByCategories />
+      </Drawer>
     </Box>
-  );
-};
+  )
+}

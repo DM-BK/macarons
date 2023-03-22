@@ -42,7 +42,7 @@ export const CategorySection = () => {
                   {/* add to config */}
                 </Typography>
                 <Button sx={styles.Button} onClick={goToSale}>
-                  Shop Now 
+                  Shop Now
                   {/* add to config */}
                 </Button>
               </Box>
