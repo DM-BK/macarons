@@ -11,6 +11,7 @@ export const ProductsItemOuter: SxProps = {
     '&:hover': {
         boxShadow: '0px 4px 16px rgb(43 52 69 / 10%)',
     },
+    cursor: 'pointer',
 
 }
 

@@ -30,31 +30,16 @@ export let theme = createTheme({
         secondary: {
             main: '#fff'
         }
+    },
+    typography: {
+        fontFamily: '"Nunito", sans-serif',
     }
 })
 
 theme = {
     ...theme,
     components: {
-        MuiTypography: {
-            styleOverrides: {
-                root: {
-                    fontFamily: '"Nunito", sans-serif',
-                }
-            }
-        },
-        // MuiButtonBase: {
-        //     styleOverrides: {
-        //
-        //     }
-        // },
-        MuiTab: {
-            styleOverrides: {
-                root: {
-                    fontFamily: '"Nunito", sans-serif',
-                }
-            }
-        }
+
     }
 }
 
@@ -62,7 +47,7 @@ const GlobalStyles = () => {
 
     const styles: GlobalStylesProps['styles'] = {
         'body': {
-            color: '#2B3445'
+            color: '#2B3445',
         },
         '.toast': {
             minWidth: '300px',
