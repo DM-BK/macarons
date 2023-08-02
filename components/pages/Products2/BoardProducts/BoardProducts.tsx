@@ -10,7 +10,18 @@ interface Props {
 export const BoardProducts = ({allProducts}: Props) => {
   //const [products, setProducts] = useState(Array.from({ length: 10 }, (_, index) => ({color: getRandomColor(), left: index * 200})))
   const [arraysProducts, setArraysProducts] = useState<Product[][]>([[]])
-  const [infoOfContainer, setInfoOfContainer] = useState({ clientX: -400, clientY: -200, indexFirstEl: 0, indexLastEl: 10, rectLeft: 0, rectRight:0 })
+  const [infoOfContainer, setInfoOfContainer] = useState({ 
+    clientX: -400, 
+    clientY: -400, 
+    indexLeftEl: 0, 
+    indexRightEl: 10, 
+    rectLeft: 0, 
+    rectRight:0,
+    indexTopRow: 0, 
+    indexBottomRow: 8, 
+    rectTop: 0, 
+    rectBottom:0,
+  })
   const currentMouseCoordinates = useRef({ clientX: 0, clientY: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
   const isCanMove = useRef<boolean>(false)
@@ -64,10 +75,9 @@ export const BoardProducts = ({allProducts}: Props) => {
     const containerRect = containerRef.current.getBoundingClientRect()
     
     setInfoOfContainer(prev => {
-      const clientX = prev.clientX - mouseMoveX
-      const clientY = prev.clientY - mouseMoveY
-      let indexFirstEl = prev.indexFirstEl
-      let indexLastEl = prev.indexLastEl
+      // left / right
+      let indexLeftEl = prev.indexLeftEl
+      let indexRightEl = prev.indexRightEl
       let rectLeft = prev.rectLeft
       let rectRight = prev.rectRight
 
@@ -75,44 +85,88 @@ export const BoardProducts = ({allProducts}: Props) => {
       const containerRight = window.innerWidth - containerRect.right + rectRight
 
       if (containerLeft > -200) {
-        setArraysProducts(prevArraysProducts => prevArraysProducts.map((products, index) => (
-          products.map(product => {
-            if (index === prev.indexLastEl) return {...product, left: product.left - 2000}
+        setArraysProducts(prevArraysProducts => prevArraysProducts.map((products) => (
+          products.map((product, productIndex) => {
+            if (productIndex === prev.indexRightEl) return {...product, left: product.left - 2000}
 
             return product
           })
         )))
 
-        indexFirstEl = indexLastEl
-        indexLastEl = indexLastEl === 0 ? 10 : indexLastEl -1
+        indexLeftEl = indexRightEl
+        indexRightEl = indexRightEl === 0 ? 10 : indexRightEl -1
 
         rectLeft = rectLeft - 200
         rectRight = rectRight + 200
       }
 
       if (containerRight > -200) {
-        setArraysProducts(prevArraysProducts => prevArraysProducts.map((products, index) => (
-          products.map(product => {
-            if (index === prev.indexFirstEl) return {...product, left: product.left + 2000}
+        setArraysProducts(prevArraysProducts => prevArraysProducts.map((products) => (
+          products.map((product, productIndex) => {
+            if (productIndex === prev.indexLeftEl) return {...product, left: product.left + 2000}
 
             return product
           })
         )))
 
-        indexLastEl = indexFirstEl
-        indexFirstEl = indexFirstEl === 10 ? 0 : indexFirstEl + 1
+        indexRightEl = indexLeftEl
+        indexLeftEl = indexLeftEl === 10 ? 0 : indexLeftEl + 1
 
         rectLeft = rectLeft + 200
         rectRight = rectRight - 200
       }
 
+      // top / bottom
+      let indexTopRow = prev.indexTopRow
+      let indexBottomRow = prev.indexBottomRow
+      let rectTop = prev.rectTop
+      let rectBottom = prev.rectBottom
+
+      const containerTop = containerRect.top + rectTop
+      const containerBottom = window.innerHeight - containerRect.bottom + rectBottom
+
+      if (containerTop > -200) {
+        setArraysProducts(prevArraysProducts => prevArraysProducts.map((products, index) => {
+          if (index === prev.indexBottomRow) return products.map(product => ({...product, top: product.top - 1600}))
+
+          return products
+        }))
+
+        indexTopRow = indexBottomRow
+        indexBottomRow = indexBottomRow === 0 ? 8 : indexBottomRow -1
+
+        rectTop = rectTop - 200
+        rectBottom = rectBottom + 200
+      }
+
+      if (containerBottom > -200) {
+        setArraysProducts(prevArraysProducts => prevArraysProducts.map((products, index) => {
+          if (index === prev.indexTopRow) return products.map(product => ({...product, top: product.top + 1600}))
+
+          return products
+        }))
+
+        indexBottomRow = indexTopRow
+        indexTopRow = indexTopRow === 8 ? 0 : indexTopRow + 1
+
+        rectTop = rectTop + 200
+        rectBottom = rectBottom - 200
+      }
+
+      const clientX = prev.clientX - mouseMoveX
+      const clientY = prev.clientY - mouseMoveY
+
       return {
         clientX,
         clientY,
-        indexFirstEl,
-        indexLastEl,
+        indexLeftEl,
+        indexRightEl,
         rectLeft,
         rectRight,
+        indexTopRow,
+        indexBottomRow,
+        rectTop,
+        rectBottom
       }
     })
   }
@@ -122,7 +176,7 @@ export const BoardProducts = ({allProducts}: Props) => {
       <Grid
         ref={containerRef}
         container 
-        sx={{position: 'relative', width: '2000px', height: '100vh'}}
+        sx={{position: 'relative', width: '2000px', height: '1600px'}}
         style={{transform: `translate(${infoOfContainer.clientX}px, ${infoOfContainer.clientY}px)` }}
         >
           {arraysProducts.map((products, i) => (

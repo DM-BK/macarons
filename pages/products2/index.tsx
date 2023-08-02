@@ -13,7 +13,7 @@ function getRandomColor() {
   return `#${r}${g}${b}`
 }
 
-const DB_products = Array.from({ length: 60 }, _ => ({color: getRandomColor()}))
+const DB_products = Array.from({ length: 80 }, _ => ({color: getRandomColor()}))
 
 const Products2 = () => {
 

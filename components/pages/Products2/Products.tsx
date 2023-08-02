@@ -8,7 +8,6 @@ interface Props {
 }
 
 export const Products = ({ products }: Props) => {
-  useEffect(() => {}, [])
 
   return (
     <>
